@@ -1,21 +1,21 @@
 {
-  "name": "parcel-project-template",
+  "name": "Filmoteka-team6",
   "version": "1.1.0",
   "description": "",
-  "homepage": "https://github.com/migace/parcel-project-template-pl-main",
+  "homepage": "https://github.com/Rafal-Chojnacki/Filmoteka-team6",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url parcel-project-template-pl-main"
+    "build": "parcel build src/*.html --public-url Filmoteka-team6"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/migace/parcel-project-template-pl-main.git"
+    "url": "git+https://github.com/Rafal-Chojnacki/Filmoteka-team6.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/migace/parcel-project-template-pl-main/issues"
+    "url": "https://github.com/Rafal-Chojnacki/Filmoteka-team6/issues"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.3",
