@@ -1,0 +1,199 @@
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.headerbg{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 320px;
+  width:100%;
+  margin: 0 auto 60px auto;
+  background-image: url(../images/tlo320.png);
+
+
+@include tablet {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../images/tloheader.jpg);
+
+ 
+opacity: 1.0;
+  height:216px ;
+  width: 100%;
+  
+
+}
+
+  @include desktop{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  background-image: url(../images/tloheader.jpg);
+
+ height: 216px;
+ max-width: 1280px;
+  }
+}
+
+.img-film {
+  margin-top: 45px;
+  width: 24px;
+  height: 24px;
+}
+.filmoteka {
+display: none;
+@include tablet{
+  display: inline;
+  font-family: 'Roboto',sans-serif;
+font-weight: 500;
+  margin-top: 45px;
+  color: white;
+  font-size: 30px;
+  margin-right: 30px;
+}
+  @include desktop {
+    display:inline;
+font-family: 'Roboto',sans-serif;
+font-weight: 500;
+  margin-top: 45px;
+  color: white;
+  font-size: 30px;
+  margin-right: 220px;
+  }
+}
+.header-flex {
+  display: flex;
+  @include tablet{
+    display: flex;
+    justify-content: space-between;
+    }
+  @include desktop{
+  display: flex;
+  justify-content: space-between;
+  }
+ 
+}
+.header_home{
+  font-family: 'Roboto',sans-serif;
+font-weight: 500;
+  margin-top: 45px;
+  color: white;
+  margin-right: 39px;
+  @include tablet {
+  font-family: 'Roboto',sans-serif;
+font-weight: 500;
+  margin-top: 45px;
+  color: white;
+  margin-right: 39px;
+  }
+  @include desktop {
+    font-family: 'Roboto',sans-serif;
+  font-weight: 500;
+    margin-top: 45px;
+    color: white;
+    margin-right: 39px;
+    }
+}
+.header_library {
+  font-family: 'Roboto',sans-serif;
+font-weight: 500;
+  margin-top: 45px;
+  margin-right: 32px;
+  color: white;
+}
+.header_input {
+  display: none;
+  background: url(../images/tloinputa.png);
+
+    margin-top: 100px;
+    margin-right: 20px;
+  @include tablet {
+    display: inline;
+    background: url(../images/tloinputa.png);
+ 
+    margin-top: 115px;
+    margin-right: 20px;
+  }
+  @include desktop {
+    display: inline;
+
+  background: url(../images/tloinputa.png);
+
+  margin-top: 115px;
+  margin-right: 260px;
+  }
+}
+.input {
+  @include tablet {
+    background: url(../images/tloinputa.png);
+    
+width: 200px;
+height: 20px;
+border: none;
+
+  // border-bottom: 1px solid white;
+  color:white;
+  padding: 5px;
+  }
+  @include desktop {
+  width: 290px;
+  height: 20px;
+  background: url(../images/tloinputa.png);
+
+border: none;
+
+  // border-bottom: 1px solid white;
+  color:white;
+  padding: 5px;
+  }
+}
+
+
+
+  //  .pagination {
+  //     display: flex;
+  //     justify-content: center;
+  //     margin-top: 20px;
+    
+  //     ul {
+  //       list-style-type: none;
+  //       display: flex;
+  //       align-items: center;
+  //       justify-content: center;
+  //     }
+    
+  //     li {
+  //       margin: 0 5px;
+  //     }
+    
+  //     button {
+  //       padding: 8px 16px;
+  //       font-size: 16px;
+  //       background-color: #f9f9f9;
+  //       border: 1px solid #ddd;
+  //       border-radius: 4px;
+  //       cursor: pointer;
+  //     }
+  //   }
+
+    .button-form{
+      background: url(../images/tloinputa.png);
+      
+      border: none;
+    }
+    .div-form {
+      border-bottom: 1px solid white;
+    }
+
+  
+
+    .input:focus{
+      outline: none;
+    }
