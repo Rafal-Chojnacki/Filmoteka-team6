@@ -1,0 +1,79 @@
+.librarybg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 320px;
+    width:100%;
+    margin: 0 auto 60px auto;
+    background-image: url(../images/libraryphone\ .jpg);
+    opacity: 1;
+   
+  
+  
+  @include tablet {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/librarytablet.jpg);
+  
+   
+  opacity: 1.0;
+    height:216px ;
+    width: 100%;
+    
+  
+  }
+  
+    @include desktop{
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    background-image: url(../images/librarydesktop.jpg);
+  
+   height: 216px;
+   max-width: 1280px;
+    }
+
+}
+
+.button-centre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top : 50px
+}
+
+.watched {
+    width: 152px;
+    height: 44px;
+    margin-right:32px ;
+    background: none;
+    font-family: 'Robot',sans-serif;
+    font-weight: 500;
+    color: white;
+    // text-align: center;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.queue {
+    width: 152px;
+    height: 44px;
+    background: none;
+ font-family: 'Robot',sans-serif;
+    font-weight: 500;
+    color: white;
+    border: 1px solid #FFFFFF;
+border-radius: 5px;
+cursor: pointer;
+
+}
+
+.watched:hover {
+    background: #FF6B01;
+}
+
+.queue:hover {
+    background: #FF6B01;
+}
