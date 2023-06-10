@@ -1,41 +1,43 @@
 <section>
     <div class="container headerbg">
-  <ul class="header-flex">
-    <li>
+      <ul class="header-flex">
+        <li class="flex-start">
       <a class="header_link" href="./index.html">
       <img class="img-film" src="./images/film.png"> 
-      
       <span class="filmoteka">Filmoteka</span>
     </a>
-    </li>
-
-  <li class="header_input" >
-    <div class="div-form ">
-      <form class="search-form" id="search-form">
-        <input 
+        </li>
+        <li class="flex-end">
+      <div class="header_home">
+        <a class="header_home" href="./index.html">HOME</a>
+      </div>
+      <div class="header_library">
+        <a class="header_library" href="./mylibrary.html">MY LIBRARY</a>
+      </div>
+        </li>
+      </ul>
+      <div class="header_input" >
+          <div class="div-form ">
+            <form class="search-form" id="search-form">
+              <input 
         class="input"
           type="text"
           name="searchQuery"
           autocomplete="off"
           placeholder="Search movies"
-        />
-        <button class="button-form" type="submit">
-            <svg class="icon-search" width="16" height="16">
-              <use href="./images/icons.svg#icon-search"></use>
-            </svg>
-        </button>
-      </form>
+              />
+              <button class="button-form" type="submit">
+                <svg class="icon-search" width="16" height="16">
+                  <use href="./images/icons.svg#icon-search"></use>
+                </svg>
+              </button>
+            </form>
+          </div>
       </div>
-  </li>
- <li>
-    <li class="header_home">
-      <a class="header_home" href="./index.html">HOME</a></li>
-    <li class="header_library">
-      <a class="header_library" href="./mylibrary.html">MY LIBRARY</a>
-    </li>
-  </li>
- 
-  </ul>    
-  
+      <p class="notitle"></p>
     </div>
-  </section>
+</section>
+<div class="loader" id="loader">
+  <div class="loader__spinner"></div>
+</div>
+<div class="gallery" id="gallery"></div>
