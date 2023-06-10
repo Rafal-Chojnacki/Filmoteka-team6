@@ -68,18 +68,17 @@ font-weight: 500;
   margin-right: 220px;
   }
 }
+
 .header-flex {
   display: flex;
-  @include tablet{
-    display: flex;
-    justify-content: space-between;
-    }
-  @include desktop{
-  display: flex;
   justify-content: space-between;
-  }
- 
 }
+
+.header-flex li {
+  display: flex;
+  align-items: center;
+}
+
 .header_home{
   font-family: 'Roboto',sans-serif;
 font-weight: 500;
@@ -92,6 +91,7 @@ font-weight: 500;
   margin-top: 45px;
   color: white;
   margin-right: 39px;
+
   }
   @include desktop {
     font-family: 'Roboto',sans-serif;
@@ -101,6 +101,12 @@ font-weight: 500;
     margin-right: 39px;
     }
 }
+
+.flex-end{
+display: flex;
+flex-direction: row;
+
+}
 .header_library {
   font-family: 'Roboto',sans-serif;
 font-weight: 500;
@@ -108,51 +114,23 @@ font-weight: 500;
   margin-right: 32px;
   color: white;
 }
+
 .header_input {
-  display: none;
-  background: url(../images/tloinputa.png);
-
-    margin-top: 100px;
-    margin-right: 20px;
-  @include tablet {
-    display: inline;
-    background: url(../images/tloinputa.png);
  
-    margin-top: 115px;
-    margin-right: 20px;
-  }
-  @include desktop {
-    display: inline;
-
-  background: url(../images/tloinputa.png);
-
-  margin-top: 115px;
-  margin-right: 260px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background: url(../images/tloinputa.png);
+  margin-top: 50px;
 }
-.input {
-  @include tablet {
-    background: url(../images/tloinputa.png);
-    
-width: 200px;
-height: 20px;
-border: none;
 
-  // border-bottom: 1px solid white;
-  color:white;
-  padding: 5px;
-  }
-  @include desktop {
+.input {
   width: 290px;
   height: 20px;
   background: url(../images/tloinputa.png);
-
-border: none;
-
-  // border-bottom: 1px solid white;
-  color:white;
+  border: none;
+  color: white;
   padding: 5px;
-  }
 }
 
 
@@ -190,10 +168,19 @@ border: none;
     }
     .div-form {
       border-bottom: 1px solid white;
+      text-align: center;
     }
 
   
 
     .input:focus{
       outline: none;
+    }
+
+
+    .notitle{
+      font-size: 14px;
+      color:#FF001B;
+      text-align: center;
+
     }
