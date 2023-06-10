@@ -4,13 +4,13 @@ const gallery = document.getElementById('gallery');
 const loader = document.getElementById('loader');
 const notitle = document.querySelector('.notitle');
 
-
 hideLoader();
-
 
 async function searchMovies(query) {
   try {
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=e7c806d7ce9bbdf1ef93bebcabbfe0f1&language=en-US&query=${query}&page=1&include_adult=false`);
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=e7c806d7ce9bbdf1ef93bebcabbfe0f1&language=en-US&query=${query}&page=1&include_adult=false`,
+    );
     const data = await response.json();
     const movies = data.results;
 
@@ -21,10 +21,7 @@ async function searchMovies(query) {
     }
 
     const moviePromises = movies.map(movie => {
-      return Promise.all([
-        getGenreNames(movie.genre_ids),
-        movie
-      ]);
+      return Promise.all([getGenreNames(movie.genre_ids), movie]);
     });
 
     showLoader();
@@ -63,7 +60,9 @@ async function searchMovies(query) {
 
 async function getGenreNames(genreIds) {
   try {
-    const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=e7c806d7ce9bbdf1ef93bebcabbfe0f1&language=en-US`);
+    const response = await fetch(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=e7c806d7ce9bbdf1ef93bebcabbfe0f1&language=en-US`,
+    );
     const data = await response.json();
     const genres = data.genres;
 
