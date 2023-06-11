@@ -6,70 +6,64 @@ a {
   text-decoration: none;
 }
 
-
-.headerbg{
+.headerbg {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 230px;
-  width:100%;
+  width: 100%;
   margin: 0 auto 60px auto;
   background-image: url(../images/tlo320.jpg);
-  
+
   opacity: 1;
- 
 
-
-@include tablet {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(../images/tloheader.jpg);
-
- 
-opacity: 1.0;
-  height:216px ;
-  width: 100%;
-  
-
-}
-
-  @include desktop{
+  @include tablet {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  background-image: url(../images/tloheader.jpg);
+    background-image: url(../images/tloheader.jpg);
 
- height: 216px;
- max-width: 1280px;
+    opacity: 1;
+    height: 216px;
+    width: 100%;
+  }
+
+  @include desktop {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/tloheader.jpg);
+
+    height: 216px;
+    max-width: 1280px;
   }
 }
 
 .img-film {
-  // 
+  //
   margin-top: 45px;
   width: 24px;
   height: 24px;
 }
 .filmoteka {
-display: none;
-@include tablet{
-  display: inline;
-  font-family: 'Roboto',sans-serif;
-font-weight: 500;
-  margin-top: 45px;
-  color: white;
-  font-size: 30px;
-  margin-right: 30px;
-}
+  display: none;
+  @include tablet {
+    display: inline;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin-top: 45px;
+    color: white;
+    font-size: 30px;
+    margin-right: 30px;
+  }
   @include desktop {
-    display:inline;
-font-family: 'Roboto',sans-serif;
-font-weight: 500;
-  margin-top: 45px;
-  color: white;
-  font-size: 30px;
-  margin-right: 220px;
+    display: inline;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin-top: 45px;
+    color: white;
+    font-size: 30px;
+    margin-right: 220px;
   }
 }
 
@@ -83,38 +77,36 @@ font-weight: 500;
   align-items: center;
 }
 
-.header_home{
-  font-family: 'Roboto',sans-serif;
-font-weight: 500;
+.header_home {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   margin-top: 45px;
   color: white;
   margin-right: 15px;
   padding-bottom: 3px;
   @include tablet {
-  font-family: 'Roboto',sans-serif;
-font-weight: 500;
-  margin-top: 45px;
-  color: white;
-  margin-right: 39px;
-
-  }
-  @include desktop {
-    font-family: 'Roboto',sans-serif;
-  font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
     margin-top: 45px;
     color: white;
     margin-right: 39px;
-    }
+  }
+  @include desktop {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin-top: 45px;
+    color: white;
+    margin-right: 39px;
+  }
 }
 
-.flex-end{
-display: flex;
-flex-direction: row;
-
+.flex-end {
+  display: flex;
+  flex-direction: row;
 }
 .header_library {
-  font-family: 'Roboto',sans-serif;
-font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   margin-top: 45px;
   margin-right: 32px;
   color: white;
@@ -122,7 +114,6 @@ font-weight: 500;
 }
 
 .header_input {
- 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,7 +122,6 @@ font-weight: 500;
 }
 
 .input {
-
   // background: url(../images/tloinputa.png);
   background: none;
   // opacity: 0.3;
@@ -143,75 +133,68 @@ font-weight: 500;
   padding: 5px;
   @include tablet {
     width: 290px;
-  // background: url(../images/tloinputa.png);
-  background: none;
-
+    // background: url(../images/tloinputa.png);
+    background: none;
   }
   @include desktop {
     width: 290px;
     // background: url(../images/tloinputa.png);
     background: none;
-  
   }
 }
 
+//  .pagination {
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 20px;
 
+//     ul {
+//       list-style-type: none;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//     }
 
-  //  .pagination {
-  //     display: flex;
-  //     justify-content: center;
-  //     margin-top: 20px;
-    
-  //     ul {
-  //       list-style-type: none;
-  //       display: flex;
-  //       align-items: center;
-  //       justify-content: center;
-  //     }
-    
-  //     li {
-  //       margin: 0 5px;
-  //     }
-    
-  //     button {
-  //       padding: 8px 16px;
-  //       font-size: 16px;
-  //       background-color: #f9f9f9;
-  //       border: 1px solid #ddd;
-  //       border-radius: 4px;
-  //       cursor: pointer;
-  //     }
-  //   }
+//     li {
+//       margin: 0 5px;
+//     }
 
-    .button-form{
-      // background: url(../images/tloinputa.png);
-      background: none;
-      
-      border: none;
-    }
-    .div-form {
-      border-bottom: 1px solid white;
-      text-align: center;
-      background: none;
-    }
+//     button {
+//       padding: 8px 16px;
+//       font-size: 16px;
+//       background-color: #f9f9f9;
+//       border: 1px solid #ddd;
+//       border-radius: 4px;
+//       cursor: pointer;
+//     }
+//   }
 
-  .icon-search {
-    background: none;
-  }
+.button-form {
+  // background: url(../images/tloinputa.png);
+  background: none;
 
-    .input:focus{
-      outline: none;
-    }
+  border: none;
+}
+.div-form {
+  border-bottom: 1px solid white;
+  text-align: center;
+  background: none;
+}
 
+.icon-search {
+  background: none;
+}
 
-    .notitle{
-      font-size: 14px;
-      color:#FF001B;
-      text-align: center;
+.input:focus {
+  outline: none;
+}
 
-    }
+.notitle {
+  font-size: 14px;
+  color: #ff001b;
+  text-align: center;
+}
 
-    .is-activ {
-      border-bottom: 3px solid red
-
-    }
+.is-activ {
+  border-bottom: 3px solid red;
+}
