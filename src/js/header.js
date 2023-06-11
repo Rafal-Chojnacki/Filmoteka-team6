@@ -3,86 +3,77 @@ const searchInput = document.querySelector('.input');
 const gallery = document.getElementById('gallery');
 const loader = document.getElementById('loader');
 const notitle = document.querySelector('.notitle');
+const API_KEY = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
+let genreMap = {};
 
 
 hideLoader();
 
+async function fetchGenres() {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`);
+    const data = await response.json();
+    const genres = data.genres;
+
+    for (const genre of genres) {
+      genreMap[genre.id] = genre.name;
+    }
+  } catch (error) {
+    console.log(error.toString());
+  }
+}
 
 async function searchMovies(query) {
   try {
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=e7c806d7ce9bbdf1ef93bebcabbfe0f1&language=en-US&query=${query}&page=1&include_adult=false`);
+    showLoader(); 
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`);
     const data = await response.json();
     const movies = data.results;
+    hideLoader(); 
+    renderGallery(movies);
 
     if (movies.length === 0) {
-      showNoTitleMessage();
       hideLoader();
-      return;
+      showNoTitleMessage();
+    } else {
+      hideNoTitleMessage();
     }
-
-    const moviePromises = movies.map(movie => {
-      return Promise.all([
-        getGenreNames(movie.genre_ids),
-        movie
-      ]);
-    });
-
-    showLoader();
-
-    const moviesWithGenres = await Promise.all(moviePromises);
-    const moviesWithGenresFormatted = moviesWithGenres.map(([genres, movie]) => {
-      const { id, poster_path, title, release_date } = movie;
-      if (!release_date || !poster_path || genres.length === 0) {
-        return '';
-      }
-      const posterUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`;
-      const productionYear = new Date(release_date).getFullYear();
-      const genresFormatted = genres.slice(0, 2).join(', ');
-
-      return `
-        <a class="gallery__link">
-          <div class="gallery-item" id="${id}">
-            <img class="gallery-item__img" src="${posterUrl}" loading="lazy" />
-            <p class="info-item">${title}</p>
-            <p class="info-item">${genresFormatted}</p>
-            <p class="info-item">${productionYear}</p>
-          </div>
-        </a>
-      `;
-    });
-
-    hideLoader();
-    renderGallery(moviesWithGenresFormatted);
-    hideNoTitleMessage();
   } catch (error) {
     console.log(error.toString());
-    hideLoader();
+    hideLoader(); 
     showNoTitleMessage();
   }
 }
 
-async function getGenreNames(genreIds) {
-  try {
-    const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=e7c806d7ce9bbdf1ef93bebcabbfe0f1&language=en-US`);
-    const data = await response.json();
-    const genres = data.genres;
 
-    const genreNames = genreIds.map(genreId => {
-      const genre = genres.find(genre => genre.id === genreId);
-      return genre ? genre.name : '';
-    });
-
-    return genreNames.filter(name => name !== '');
-  } catch (error) {
-    console.log(error.toString());
-    return [];
-  }
-}
 
 function renderGallery(movies) {
   gallery.innerHTML = '';
+const markup = movies.map(movie =>{ 
+  const { id, poster_path, title, release_date, genre_ids } = movie;
 
-  const markup = movies.join('');
+  if (!release_date || !poster_path || genre_ids.length === 0) {
+    return ''; 
+  }
+
+  const posterUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`;
+  const productionYear = new Date(release_date).getFullYear();
+  const genresFormatted = genre_ids
+  .map(genreId => genreMap[genreId])
+  .slice(0, 2)
+  .join(', ');
+
+  return `
+    <a class="gallery__link">
+      <div class="gallery-item" id="${id}">
+        <img class="gallery-item__img" src="${posterUrl}" loading="lazy" />
+        <p class="info-item">${title}</p>
+        <p class="info-item">${genresFormatted}</p>
+        <p class="info-item">${productionYear}</p>
+      </div>
+    </a>
+  `;
+}).join("")
 
   gallery.insertAdjacentHTML('beforeend', markup);
 }
@@ -96,7 +87,7 @@ function hideLoader() {
 }
 
 function showNoTitleMessage() {
-  notitle.innerText = 'Search result not successful. Enter the correct movie name';
+  notitle.innerText = 'Search result not successful. Enter the correct movie name.';
   notitle.style.display = 'block';
 }
 
@@ -110,3 +101,5 @@ searchForm.addEventListener('submit', e => {
   searchMovies(query);
   searchInput.value = '';
 });
+
+fetchGenres();
