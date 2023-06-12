@@ -1,29 +1,27 @@
-.gallery-flex {
-  display: flex;
-}
 .gallery {
+  display: flex;
+  flex-direction: column;
   min-width: 320px;
 
   &__item {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-
+    margin: 20px 20px 0px 20px;
     &-img {
       width: 100%;
       border-radius: 5px;
     }
+
     &-header {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 16px;
       margin-top: 10px;
       margin-bottom: 0px;
-      line-height: 16px;
-      font-family: 'Roboto';
-      font-weight: 500;
-      font-size: 16px;
     }
+
     &-info {
-      font-family: 'Roboto';
-      font-size: 12px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
       font-weight: 500;
       line-height: 14px;
       margin-top: 0px;
@@ -33,6 +31,33 @@
       &:last-child::before {
         content: '| ';
       }
+    }
+  }
+}
+
+@include tablet {
+  .gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin: 0px 32px;
+
+    &__link {
+      flex-basis: calc((100% - 32px) / 2);
+    }
+
+    &__item {
+      margin: 0;
+    }
+  }
+}
+
+@include desktop {
+  .gallery {
+    gap: 16px;
+
+    &__link {
+      flex-basis: calc((100% - 32px) / 3);
     }
   }
 }
