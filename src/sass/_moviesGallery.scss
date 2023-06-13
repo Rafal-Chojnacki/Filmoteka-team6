@@ -8,6 +8,16 @@
     &-img {
       width: 100%;
       border-radius: 5px;
+      -webkit-box-shadow: 3px 4px 15px 2px rgba(66, 68, 90, 1);
+      -moz-box-shadow: 3px 4px 15px 2px rgba(66, 68, 90, 1);
+      box-shadow: 3px 4px 15px 2px rgba(66, 68, 90, 1);
+      transition-duration: 250ms;
+      &:focus,
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+        transition-duration: 250ms;
+      }
     }
 
     &-header {
@@ -59,5 +69,23 @@
     &__link {
       flex-basis: calc((100% - 32px) / 3);
     }
+  }
+}
+
+.btnUp {
+  background: none;
+  border: none;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  transition-duration: 250ms;
+  &:focus,
+  &:hover {
+    transition-duration: 250ms;
+    transform: scale(1.2);
+  }
+  &__icon {
+    fill: #ff6b08;
   }
 }
