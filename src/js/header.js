@@ -64,14 +64,14 @@ const markup = movies.map(movie =>{
   .join(', ');
 
   return `
-    <a class="gallery__link">
-      <div class="gallery-item" id="${id}">
-        <img class="gallery-item__img" src="${posterUrl}" loading="lazy" />
-        <p class="info-item">${title}</p>
-        <p class="info-item">${genresFormatted}</p>
-        <p class="info-item">${productionYear}</p>
-      </div>
-    </a>
+  <a class="gallery__link">
+  <div class="gallery__item" id="${id}">
+    <img class="gallery__item-img" src="${posterUrl}" loading="lazy" />
+    <h4 class="gallery__item-header">${title}</h4>
+    <p class="gallery__item-info">${genresFormatted}</p>
+    <p class="gallery__item-info">${productionYear}</p>
+  </div>
+</a>
   `;
 }).join("")
 
