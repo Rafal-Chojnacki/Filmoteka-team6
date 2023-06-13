@@ -6,6 +6,10 @@ const btnQueued = document.querySelector('.modal__btnQueue');
 const modalImg = document.querySelector('.modal__moviePoster');
 const modalTitle = document.querySelector('.modal__title');
 const modalAbout = document.querySelector('.modal__about');
+const modalGenre = document.querySelector('.modal__genre');
+const modalVotes = document.querySelector('.modal__votes');
+const modalPopularity = document.querySelector('.modal__popularity');
+const modalOrgTitle = document.querySelector('.modal__originalTitle');
 
 let movieId;
 let queuedFilmsArray = [];
@@ -19,8 +23,12 @@ function detailsHandler(clickedMovie) {
     fetchId(movieId).then(movieData => {
       modalImg.setAttribute('src', `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`);
       modalTitle.textContent = movieData.title;
+      modalVotes.textContent = `${movieData.vote_average}/ ${movieData.vote_count}`;
+      modalPopularity.textContent = movieData.popularity;
+      modalOrgTitle.textContent = movieData.original_title;
       modalAbout.textContent = movieData.overview;
-      // console.log(movieData);
+      modalGenre.textContent = movieData.genres[0].name;
+      console.log(movieData);
     });
     toggleModal();
   } else return;

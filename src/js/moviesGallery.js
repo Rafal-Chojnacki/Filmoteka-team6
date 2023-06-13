@@ -15,7 +15,7 @@ function moviesGallery(movies, genres) {
         .join(', ');
 
       return `
-          <a class="gallery__link>
+          <a class="gallery__link">
             <div class="gallery__item" id="${id}">
               <img class="gallery__item-img" src="https://image.tmdb.org/t/p/w500/${poster_path}"/>
               <h4 class="gallery__item-header">${title}</h4>
