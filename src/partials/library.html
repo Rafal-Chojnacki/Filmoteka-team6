@@ -1,5 +1,5 @@
-<section>
-    <div class="container librarybg">
+<section class="sh">
+    <div class="container headerbg">
   <ul class="header-flex">
     <li class="flex-start">
       <a class="header_link" href="./index.html">
@@ -18,6 +18,17 @@
     </li>
   </ul>
 
+  <div class="switch-flex">
+    <div class="toggle-icon-sun">
+      <!-- <span class="toggle-text">Light Mode</span> -->
+      <i class="fas fa-sun"></i>
+    </div>
+    <label class="theme__switch">
+      <input type="checkbox" class="day-night-switch" />
+      <span class="slider round"></span>
+    </label>
+  </div>
+
 
 <div class="button-centre">
     <button class="watched">WATCHED</button>
@@ -31,7 +42,7 @@
     </div>
 
   </section>
-  <div class="loader" id="loader">
+  <div class="loader loader-hidden" id="loader">
     <div class="loader__spinner"></div>
   </div>
 

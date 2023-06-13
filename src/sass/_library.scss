@@ -40,7 +40,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top : 50px
+    // margin-top : 50px
 }
 
 .watched {
@@ -76,4 +76,8 @@ cursor: pointer;
 
 .queue:hover {
     background: #FF6B01;
+}
+
+.loader-hidden{
+  display: none;
 }
