@@ -1,24 +1,44 @@
 <div class="container-footer">
-  <div class="container-footer__flex-part-1">
-    <p class="container-footer__data">&#169; 2020 | All Rights Reserved |</p>
+  <div class="container-footer__flex-part">
+    <span class="container-footer__plain-text">&#169; 2020 | All Rights Reserved |&nbsp;</span>
   </div>
-  <div class="container-footer__flex-part-2">
-    <p class="container-footer__data-part-2">Developed with</p>
-    <p class="container-footer__image">
+  <div class="container-footer__flex-part">
+    <span class="container-footer__plain-text">Developed with</span>
+    <span class="container-footer__image">
       <svg class="container-footer__heart" width="14" height="12.75">
         <use href="./images/icons.svg#icon-Heart"></use>
       </svg>
-    </p>
+    </span>
 
-    <p class="container-footer__group-name">
-      <span class="container-footer__group-name__part-1">by</span>
-      <span onclick="openModal()" class="container-footer__group-name__part-2">Team Alfa</span>
-    </p>
+    <span class="container-footer__plain-text">by</span>
+    <span class="container-footer__group-uri" onclick="openModal()">Team Alfa</span>
   </div>
 </div>
 <div class="modal">
   <div class="modal-content">
-    <span class="close"></span>
-    <p><span class="group-name">Treść modala</span><span class="group-members"></span></p>
+    <span class="close" onclick="closeModal()"
+      ><svg class="close-icon" width="30" height="30">
+        <use href="./images/icons.svg#close-icon"></use>
+      </svg>
+    </span>
+    <h1>Team Alfa</h1>
+    <h2>
+      Team Leader
+      <p class="team-leader">Rafał Chojnacki</p>
+    </h2>
+    <h3>
+      Scrum Master
+      <p class="scrum-master">Michał Zaborowski</p>
+    </h3>
+    <ul class="developers">
+      Developers
+      <li class="developers-name">Jonasz Janicki</li>
+      <li class="developers-name">Miachał Leszczyk</li>
+      <li class="developers-name">Mikołaj Leśniczuk</li>
+      <li class="developers-name">Sara Motyka</li>
+      <li class="developers-name">Tamara Murcia Pienkowski</li>
+      <li class="developers-name">Julita Żochowska</li>
+    </ul>
   </div>
 </div>
+<script src="./modal-footer.js"></script>

@@ -16,25 +16,26 @@
   height: 100px;
   display: flex;
   flex-direction: column;
-  margin-right: auto;
+  margin-right: auto; //do wyśrodkowania elementów w poziomie
   margin-left: auto;
   justify-content: center;
   margin-top: 1953px;
+  gap: 10px;
 
   @include tablet {
     height: 77px;
+    gap: 0px;
     flex-direction: row;
     text-align: center;
     align-items: center;
   }
 
-  @include desktop {
-    height: 77px;
+  &__flex-part {
+    text-align: center;
   }
-  &__data,
-  &__data-part-2,
-  &__group-name,
-  &__link {
+
+  &__plain-text,
+  &__group-uri {
     //font-style: roboto;
     color: #545454;
     font-size: 14px;
@@ -43,28 +44,20 @@
     align-items: center;
   }
 
-  &__data {
-    margin-bottom: 9.9px;
-  }
-
-  &__flex-part-2 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  &__image {
+    margin-right: 10px;
+    margin-left: 10px;
   }
 
   &__heart {
     animation: beat 1.5s infinite ease 0s;
-    margin-left: 10px;
-    margin-right: 10px;
+  }
+
+  &__group-uri {
+    text-decoration: underline;
   }
 
   @include tablet {
-    font-size: 16px;
-  }
-
-  @include desktop {
     font-size: 16px;
   }
 }
@@ -95,15 +88,10 @@
 }
 
 .close {
-  color: #aaa;
   float: right;
-  font-size: 28px;
-  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
   cursor: pointer;
 }
