@@ -102,4 +102,9 @@ searchForm.addEventListener('submit', e => {
   searchInput.value = '';
 });
 
-fetchGenres();
+  fetchGenres();
+
+
+
+
+export {hideLoader};
