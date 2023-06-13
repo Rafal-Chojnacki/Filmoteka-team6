@@ -10,7 +10,7 @@ function moviesGallery(movies) {
       const year = new Date(release_date).getFullYear();
 
       return `
-          <a class="gallery__link">
+          <a class="gallery__link>
             <div class="gallery__item" id="${id}">
               <img class="gallery__item-img" src="https://image.tmdb.org/t/p/w500/${poster_path}"/>
               <h4 class="gallery__item-header"><b>${title}</b></h4>
