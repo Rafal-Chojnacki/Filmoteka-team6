@@ -58,3 +58,19 @@ async function fetchGenre() {
 }
 
 fetchMovies();
+
+const btnUp = document.querySelector('.btnUp');
+btnUp.style.display = 'none';
+window.onscroll = function () {
+  scrollFunction();
+};
+function scrollFunction() {
+  if (document.documentElement.scrollTop > 200) {
+    btnUp.style.display = 'block';
+  } else {
+    btnUp.style.display = 'none';
+  }
+  btnUp.addEventListener('click', () => {
+    document.documentElement.scrollTop = 0;
+  });
+}
