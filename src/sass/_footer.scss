@@ -1,0 +1,109 @@
+@keyframes beat {
+  0%,
+  50%,
+  100% {
+    transform: scale(1, 1);
+  }
+  30%,
+  80% {
+    transform: scale(1.7, 1.7);
+  }
+}
+
+.container-footer {
+  background-color: #f7f7f7;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+  margin-top: 1953px;
+
+  @include tablet {
+    height: 77px;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+  }
+
+  @include desktop {
+    height: 77px;
+  }
+  &__data,
+  &__data-part-2,
+  &__group-name,
+  &__link {
+    //font-style: roboto;
+    color: #545454;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.17px;
+    align-items: center;
+  }
+
+  &__data {
+    margin-bottom: 9.9px;
+  }
+
+  &__flex-part-2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__heart {
+    animation: beat 1.5s infinite ease 0s;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  @include tablet {
+    font-size: 16px;
+  }
+
+  @include desktop {
+    font-size: 16px;
+  }
+}
+
+.modal {
+  display: none; /* Ukrywamy modal domyślnie */
+  position: fixed; // ustala pozycję modalu jako stałą na ekranie, niezależnie od przewijania strony
+  z-index: 1;
+  left: 0; //umieszcza modal w lewym górnym rogu ekranu
+  top: 0;
+  width: 100%; //ustawia szerokość i wysokość modalu na 100% szerokości i wysokości ekranu, aby zajmował całe okno przeglądarki
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); //ustawia kolor tła modalu na czarny (RGB: 0, 0, 0) z przezroczystością 0.4, co daje efekt półprzezroczystego tła
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; //ustawia marginesy górny i dolny na 15% szerokości modalu, a marginesy lewy i prawy automatycznie dopasowują do szerokości
+  padding: 20px; //dodaje 20 pikseli wewnętrznego odstępu wokół zawartości modala
+  border: 1px solid #888;
+  width: 80%; //ustawia szerokość zawartości modala na 80% szerokości modala, co oznacza, że zawartość będzie zajmować 80% szerokości modalu.
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
