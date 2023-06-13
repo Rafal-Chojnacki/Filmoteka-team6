@@ -70,7 +70,8 @@ function scrollFunction() {
   } else {
     btnUp.style.display = 'none';
   }
-  btnUp.addEventListener('click', () => {
-    document.documentElement.scrollTop = 0;
-  });
+  btnUp.addEventListener('click', scrollToTop);
+}
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
