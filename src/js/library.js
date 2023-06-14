@@ -11,6 +11,9 @@ function myLibraryWatchedGallery() {
   myLibraryWatched.innerHTML = '';
   myLibraryWatched.classList.remove('is-hidden');
   myLibraryQueue.classList.add('is-hidden');
+  queueButton.classList.remove('aktiv');
+watchedButton.classList.add('aktiv');
+
   if (localStorage.getItem('watched-films')) {
     fetchedMovies = localStorage.getItem('watched-films');
     const fetchedMoviesArray = JSON.parse(fetchedMovies);
@@ -42,6 +45,8 @@ function myLibraryQueueGallery() {
   myLibraryQueue.innerHTML = '';
   myLibraryWatched.classList.add('is-hidden');
   myLibraryQueue.classList.remove('is-hidden');
+  watchedButton.classList.remove('aktiv');
+queueButton.classList.add('aktiv');
   if (localStorage.getItem('queued-films')) {
     fetchedMovies = localStorage.getItem('queued-films');
     const fetchedMoviesArray = JSON.parse(fetchedMovies);
@@ -63,3 +68,5 @@ function myLibraryQueueGallery() {
 }
 
 queueButton.addEventListener('click', myLibraryQueueGallery);
+window.addEventListener('load', myLibraryWatchedGallery);
+
