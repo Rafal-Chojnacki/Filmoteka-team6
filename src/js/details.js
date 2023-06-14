@@ -28,7 +28,7 @@ function detailsHandler(clickedMovie) {
       modalOrgTitle.textContent = movieData.original_title;
       modalAbout.textContent = movieData.overview;
       modalGenre.textContent = movieData.genres[0].name;
-      console.log(movieData);
+      //console.log(movieData);
     });
     toggleModal();
   } else return;
@@ -49,16 +49,38 @@ async function fetchId(movieId) {
 function toggleModal() {
   modalBackdrop.classList.toggle('is-hidden');
 }
+
 function saveToWatched() {
+  let tempArray = [];
+  if (localStorage.getItem('watched-films')) {
+    tempArray = JSON.parse(localStorage.getItem('watched-films'));
+  }
   fetchId(movieId).then(data => {
-    watchedFilmsArray.push(data);
-    localStorage.setItem('watched-films', JSON.stringify(watchedFilmsArray));
+    for (let i = 0; i < tempArray.length; i++) {
+      if (tempArray[i].id === data.id) {
+        alert('Movie is already in library');
+        return;
+      }
+    }
+    tempArray.push(data);
+    localStorage.setItem('watched-films', JSON.stringify(tempArray));
   });
 }
+
 function saveToQueue() {
+  let tempArray = [];
+  if (localStorage.getItem('queued-films')) {
+    tempArray = JSON.parse(localStorage.getItem('queued-films'));
+  }
   fetchId(movieId).then(data => {
-    queuedFilmsArray.push(data);
-    localStorage.setItem('queued-films', JSON.stringify(queuedFilmsArray));
+    for (let i = 0; i < tempArray.length; i++) {
+      if (tempArray[i].id === data.id) {
+        alert('Movie is already in library');
+        return;
+      }
+    }
+    tempArray.push(data);
+    localStorage.setItem('queued-films', JSON.stringify(tempArray));
   });
 }
 
