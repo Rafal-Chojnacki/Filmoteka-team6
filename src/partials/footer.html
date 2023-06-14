@@ -11,34 +11,30 @@
     </span>
 
     <span class="container-footer__plain-text">by</span>
-    <span class="container-footer__group-uri" onclick="openModal()">Team Alfa</span>
+    <span class="container-footer__group-uri open-modal">Team Alfa</span>
   </div>
 </div>
-<div class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()"
+<div class="modal-footer">
+  <div class="modal-footer__content">
+    <span class="close-footer close-modal"
       ><svg class="close-icon" width="30" height="30">
         <use href="./images/icons.svg#close-icon"></use>
       </svg>
     </span>
-    <h1>Team Alfa</h1>
-    <h2>
-      Team Leader
+    <div class="modal-footer__credits">
+      <h1>Team Alfa</h1>
+      <h2>Team Leader</h2>
       <p class="team-leader">Rafał Chojnacki</p>
-    </h2>
-    <h3>
-      Scrum Master
+
+      <h2>Scrum Master</h2>
       <p class="scrum-master">Michał Zaborowski</p>
-    </h3>
-    <ul class="developers">
-      Developers
-      <li class="developers-name">Jonasz Janicki</li>
-      <li class="developers-name">Miachał Leszczyk</li>
-      <li class="developers-name">Mikołaj Leśniczuk</li>
-      <li class="developers-name">Sara Motyka</li>
-      <li class="developers-name">Tamara Murcia Pienkowski</li>
-      <li class="developers-name">Julita Żochowska</li>
-    </ul>
+      <h2>Developers</h2>
+      <p class="developers-name">Jonasz Janicki</p>
+      <p class="developers-name">Miachał Leszczyk</p>
+      <p class="developers-name">Mikołaj Leśniczuk</p>
+      <p class="developers-name">Sara Motyka</p>
+      <p class="developers-name">Tamara Murcia Pienkowski</p>
+      <p class="developers-name">Julita Żochowska</p>
+    </div>
   </div>
 </div>
-<script src="./modal-footer.js"></script>

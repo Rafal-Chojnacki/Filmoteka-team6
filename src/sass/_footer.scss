@@ -10,16 +10,25 @@
   }
 }
 
+@keyframes credits {
+  0% {
+    transform: translate(0px, 600px);
+  }
+  100% {
+    transform: translate(0px, -600px);
+  }
+}
+
 .container-footer {
   background-color: #f7f7f7;
   width: 100%;
   height: 100px;
   display: flex;
   flex-direction: column;
-  margin-right: auto; //do wyśrodkowania elementów w poziomie
+  margin-right: auto;
   margin-left: auto;
   justify-content: center;
-  margin-top: 1953px;
+  margin-top: 25px;
   gap: 10px;
 
   @include tablet {
@@ -36,8 +45,8 @@
 
   &__plain-text,
   &__group-uri {
-    //font-style: roboto;
     color: #545454;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     text-align: center;
     line-height: 1.17px;
@@ -55,6 +64,7 @@
 
   &__group-uri {
     text-decoration: underline;
+    cursor: pointer;
   }
 
   @include tablet {
@@ -62,36 +72,53 @@
   }
 }
 
-.modal {
-  display: none; /* Ukrywamy modal domyślnie */
-  position: fixed; // ustala pozycję modalu jako stałą na ekranie, niezależnie od przewijania strony
+.modal-footer {
+  display: none;
+  position: fixed;
   z-index: 1;
-  left: 0; //umieszcza modal w lewym górnym rogu ekranu
+  left: 0;
   top: 0;
-  width: 100%; //ustawia szerokość i wysokość modalu na 100% szerokości i wysokości ekranu, aby zajmował całe okno przeglądarki
+  width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.4
-  ); //ustawia kolor tła modalu na czarny (RGB: 0, 0, 0) z przezroczystością 0.4, co daje efekt półprzezroczystego tła
-}
+  background-color: rgba(0, 0, 0, 0.4);
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; //ustawia marginesy górny i dolny na 15% szerokości modalu, a marginesy lewy i prawy automatycznie dopasowują do szerokości
-  padding: 20px; //dodaje 20 pikseli wewnętrznego odstępu wokół zawartości modala
-  border: 1px solid #888;
-  width: 80%; //ustawia szerokość zawartości modala na 80% szerokości modala, co oznacza, że zawartość będzie zajmować 80% szerokości modalu.
-}
+  &__content {
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    text-align: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at top left, #1f2021 0%, #51131e 100%);
+    color: #fff;
+  }
 
-.close {
-  float: right;
-}
+  &__credits {
+    animation: credits 30s linear infinite;
+    h1 {
+      font-size: 60px;
+    }
 
-.close:hover,
-.close:focus {
-  cursor: pointer;
+    h2,
+    p,
+    li {
+      line-height: 1em;
+    }
+
+    h2 {
+      line-height: 1.2em;
+      margin-top: 32px;
+    }
+  }
+
+  .close-footer {
+    position: relative;
+    z-index: 1;
+    float: right;
+  }
+
+  .close-footer:hover,
+  .close-footer:focus {
+    cursor: pointer;
+  }
 }
