@@ -1,0 +1,57 @@
+.backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  transition-property: visibility;
+  visibility: visible;
+  animation-duration: 2000ms;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  z-index: 999;
+}
+.modal {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  max-height: 450px;
+  max-width: 450px;
+
+  margin: 20px;
+  margin-top: 20px;
+  background: white;
+  visibility: visible;
+  transition-property: visibility opacity;
+  transition-duration: 2s;
+  overflow-x: hidden;
+  z-index: 999;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__values {
+    display: flex;
+    flex-direction: column;
+  }
+  &__moviePoster {
+    margin: 20px;
+    width: 240px;
+    height: 357px;
+  }
+  &__title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: black;
+    margin: 20px;
+  }
+}
+.is-hidden {
+  display: none;
+}

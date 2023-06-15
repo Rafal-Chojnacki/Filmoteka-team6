@@ -31,7 +31,7 @@
     background-image: url(../images/librarydesktop.jpg);
   
    height: 216px;
-   max-width: 1280px;
+  //  max-width: 1280px;
     }
 
 }
@@ -40,7 +40,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top : 50px
+    margin-top : 10px
 }
 
 .watched {
@@ -76,4 +76,12 @@ cursor: pointer;
 
 .queue:hover {
     background: #FF6B01;
+}
+
+.loader-hidden{
+  display: none;
+}
+
+.aktiv {
+  background-color: #FF6B01;
 }
