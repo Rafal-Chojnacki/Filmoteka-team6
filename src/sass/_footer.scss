@@ -84,9 +84,12 @@
   background-color: rgba(0, 0, 0, 0.4);
 
   &__content {
-    margin: 15% auto;
+    position: relative;
+    top: 50%;
+    margin: -300px auto;
     padding: 20px;
     width: 80%;
+    height: 600px;
     text-align: center;
     overflow: hidden;
     background: radial-gradient(ellipse at top left, #1f2021 0%, #51131e 100%);
@@ -100,8 +103,7 @@
     }
 
     h2,
-    p,
-    li {
+    p li {
       line-height: 1em;
     }
 
