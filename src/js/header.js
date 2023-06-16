@@ -35,6 +35,7 @@ async function searchMovies(query) {
     if (movies.length === 0) {
       hideLoader();
       showNoTitleMessage();
+      gallery.innerHTML ='<p class="myfriend"></p>'
     } else {
       hideNoTitleMessage();
     }
@@ -105,6 +106,9 @@ searchForm.addEventListener('submit', e => {
   fetchGenres();
 
 
-
-
+export {showNoTitleMessage};
+export {showLoader};
 export {hideLoader};
+export {fetchGenres};
+export {renderGallery};
+export {hideNoTitleMessage};
