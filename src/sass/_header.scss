@@ -35,7 +35,7 @@ a {
     background-image: url(../images/tloheader.jpg);
 
     height: 216px;
-    max-width: 1280px;
+    // max-width: 1280px;
   }
 }
 
@@ -118,7 +118,7 @@ a {
   align-items: center;
   justify-content: center;
   // background: url(../images/tloinputa.png);
-  margin-top: 50px;
+  // margin-top: 50px;
 }
 
 .input {
@@ -143,31 +143,7 @@ a {
   }
 }
 
-//  .pagination {
-//     display: flex;
-//     justify-content: center;
-//     margin-top: 20px;
 
-//     ul {
-//       list-style-type: none;
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//     }
-
-//     li {
-//       margin: 0 5px;
-//     }
-
-//     button {
-//       padding: 8px 16px;
-//       font-size: 16px;
-//       background-color: #f9f9f9;
-//       border: 1px solid #ddd;
-//       border-radius: 4px;
-//       cursor: pointer;
-//     }
-//   }
 
 .button-form {
   // background: url(../images/tloinputa.png);
@@ -197,4 +173,37 @@ a {
 
 .is-activ {
   border-bottom: 3px solid red;
+}
+
+
+.header__genre {
+  background-color: yellow;
+  width: 100px;
+  margin-left: 40px;
+  // margin-top: 30px;
+}
+
+.myfriend {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 300px;
+  margin: 0 auto 60px auto;
+  background-image: url(../images/wrongway.jpg);
+
+  @include tablet {
+height: 500px;
+width: 500px;
+  }
+
+  @include desktop
+  {
+    height: 700px;
+    width: 700px;
+  }
+}
+
+.genre {
+  background-color: lightgray;
 }

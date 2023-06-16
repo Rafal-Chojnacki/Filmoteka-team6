@@ -1,5 +1,5 @@
-<section>
-    <div class="container headerbg">
+<section class="sh conten">
+    <div class="container headerbg ">
       <ul class="header-flex">
         <li class="flex-start">
       <a class="header_link" href="./index.html">
@@ -16,6 +16,45 @@
       </div>
         </li>
       </ul>
+
+      <div class="header__genre">
+        <select class="genre">
+          <option>Choose genre</option>
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Animation">Animation</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Crime">Crime</option>
+          <option value="Documentary">Documentary</option>
+          <option value="Drama">Drama</option>
+          <option value="Family">Family</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="History">History</option>
+          <option value="Horror">Horror</option>
+          <option value="Music">Music</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Romance">Romance</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="TV Movie">TV Movie</option>
+          <option value="Thriller">Thriller</option>
+          <option value="War">War</option>
+          <option value="Western">Western</option>
+        </select>
+      </div>
+
+      <div class="switch-flex">
+        <div class="toggle-icon-sun">
+        
+        </div>
+        <label class="theme__switch">
+          <input type="checkbox" class="day-night-switch" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+
+
+
       <div class="header_input" >
           <div class="div-form ">
             <form class="search-form" id="search-form">
@@ -40,4 +79,7 @@
 <div class="loader" id="loader">
   <div class="loader__spinner"></div>
 </div>
-<div class="gallery" id="gallery"></div>
+<div class="gallery-wrapper">
+  <div class="gallery" id="gallery"></div>
+</div>
+<div class="pagination"></div>

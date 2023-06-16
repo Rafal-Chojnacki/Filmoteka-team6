@@ -1,41 +1,40 @@
-<section>
-    <div class="container librarybg">
-  <ul class="header-flex">
-    <li class="flex-start">
-      <a class="header_link" href="./index.html">
-      <img class="img-film" src="./images/film.png"> 
-      <span class="filmoteka">Filmoteka</span>
-    </a>
-  </li>
+<section class="sh">
+  <div class="container headerbg librarybg">
+    <ul class="header-flex">
+      <li class="flex-start">
+        <a class="header_link" href="./index.html">
+          <img class="img-film" src="./images/film.png" />
+          <span class="filmoteka">Filmoteka</span>
+        </a>
+      </li>
 
-    <li class="flex-end">
-      <div class="header_home">
-        <a class="header_home " href="./index.html">HOME</a>
+      <li class="flex-end">
+        <div class="header_home">
+          <a class="header_home" href="./index.html">HOME</a>
+        </div>
+        <div class="header_library">
+          <a class="header_library is-activ" href="./mylibrary.html">MY LIBRARY</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="switch-flex">
+      <div class="toggle-icon-sun">
+      
       </div>
-      <div class="header_library">
-        <a class="header_library is-activ" href="./mylibrary.html">MY LIBRARY</a>
-      </div>
-    </li>
-  </ul>
-
-
-<div class="button-centre">
-    <button class="watched">WATCHED</button>
-    <button class="queue">QUEUE</button>
-
-</div>
-
-
+      <label class="theme__switch">
+        <input type="checkbox" class="day-night-switch" />
+        <span class="slider round"></span>
+      </label>
     </div>
-  
+    <div class="button-centre">
+      <button class="watched">WATCHED</button>
+      <button class="queue">QUEUE</button>
     </div>
-
-  </section>
-  <div class="loader" id="loader">
-    <div class="loader__spinner"></div>
   </div>
-
-
-
-
-
+</section>
+<div class="loader loader-hidden" id="loader">
+  <div class="loader__spinner"></div>
+</div>
+<section class="myLibrary--watched gallery"></section>
+<section class="myLibrary--queue gallery"></section>
