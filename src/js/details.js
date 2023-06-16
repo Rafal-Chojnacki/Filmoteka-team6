@@ -12,8 +12,7 @@ const modalPopularity = document.querySelector('.modal__popularity');
 const modalOrgTitle = document.querySelector('.modal__originalTitle');
 
 let movieId;
-let queuedFilmsArray = [];
-let watchedFilmsArray = [];
+
 function detailsHandler(clickedMovie) {
   //console.log(clickedMovie.target);
 
@@ -48,6 +47,12 @@ async function fetchId(movieId) {
 
 function toggleModal() {
   modalBackdrop.classList.toggle('is-hidden');
+}
+function EscapeCloseModal(e) {
+  if (e.keyCode === 27 && !modalBackdrop.classList.contains('is-hidden')) toggleModal();
+}
+function clickOffModal(e) {
+  if (e.target === modalBackdrop) toggleModal();
 }
 
 function saveToWatched() {
@@ -88,3 +93,5 @@ gallery.addEventListener('click', detailsHandler);
 btnClose.addEventListener('click', toggleModal);
 btnWatched.addEventListener('click', saveToWatched);
 btnQueued.addEventListener('click', saveToQueue);
+document.addEventListener('keydown', EscapeCloseModal);
+modalBackdrop.addEventListener('click', clickOffModal);
