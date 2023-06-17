@@ -7,6 +7,7 @@ const API_KEY = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
 let genreMap = {};
 
 
+
 hideLoader();
 
 async function fetchGenres() {
@@ -23,12 +24,14 @@ async function fetchGenres() {
   }
 }
 
-async function searchMovies(query) {
+async function searchMovies(query, page = 1, perPage = 20){
   try {
+    
+    gallery.innerHTML=""
     showLoader(); 
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`);
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&include_adult=false&page=${page}`);
     const data = await response.json();
-    const movies = data.results;
+    const movies = data.results.slice(0,perPage);
     hideLoader(); 
     renderGallery(movies);
 
@@ -112,3 +115,4 @@ export {hideLoader};
 export {fetchGenres};
 export {renderGallery};
 export {hideNoTitleMessage};
+export {searchMovies};

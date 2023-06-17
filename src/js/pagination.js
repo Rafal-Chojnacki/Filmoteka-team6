@@ -2,6 +2,10 @@
 
 import { fetchMovies } from './moviesGallery.js';
 import { fetchMoviesByGenre } from './choose.js';
+import { searchMovies } from './header.js';
+const searchInput = document.querySelector('.input');
+let query = searchInput.value;
+const gallery = document.querySelector('.gallery')
 // const API_KEY = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
 const genreSelect = document.querySelector('.genre')
 // Selecting DOM elements
@@ -46,8 +50,14 @@ numbers.forEach((number, numIndex) => {
     // Add the "active" class to the clicked number link
     number.classList.add('active');
     if (genreSelect.value !== 'Choose genre') {
+      gallery.innerHTML='';
       fetchMoviesByGenre(currentStep);
-    } else {
+    } 
+    else if (searchInput.value.length !== 0 ){
+      gallery.innerHTML='';
+      searchMovies(query , currentStep)
+        } else {
+      gallery.innerHTML='';
       fetchMovies(currentStep);
     }
     updateBtnBehaviour(); // Update the button states
@@ -62,8 +72,14 @@ prevBtn.addEventListener('click', () => {
   currentStep = currentStep - 1;
   // console.log(currentStep);
   if (genreSelect.value !== 'Choose genre') {
+    gallery.innerHTML='';
     fetchMoviesByGenre(currentStep);
-  } else {
+  } 
+  else if (searchInput.value.length !== 0 ){
+    gallery.innerHTML='';
+    searchMovies(query , currentStep)
+      } else {
+    gallery.innerHTML='';
     fetchMovies(currentStep);
   }
   updateBtnBehaviour();
@@ -77,8 +93,14 @@ nextBtn.addEventListener('click', () => {
   currentStep = currentStep + 1;
   // console.log(currentStep);
   if (genreSelect.value !== 'Choose genre') {
+    gallery.innerHTML='';
     fetchMoviesByGenre(currentStep);
-  } else {
+  } 
+  else if (searchInput.value.length !== 0 ){
+    gallery.innerHTML='';
+    searchMovies(query , currentStep)
+      } else {
+    gallery.innerHTML='';
     fetchMovies(currentStep);
   }
   disappearingBtns();

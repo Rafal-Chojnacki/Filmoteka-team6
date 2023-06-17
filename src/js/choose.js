@@ -67,7 +67,8 @@ async function fetchMoviesByGenre(number) {
     const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${number}`);
     const data = await response.json();
     const genres = await fetchGenre();
-    moviesGallery(data.results, genres);
+    const slajs = data.results.slice(0,20);
+    moviesGallery(slajs, genres);
     hideLoader()
     return data;
   } catch (error) {
