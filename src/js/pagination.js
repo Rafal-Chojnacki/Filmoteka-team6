@@ -1,9 +1,13 @@
 'use strict';
 
 import { fetchMovies } from './moviesGallery.js';
-
+import { fetchMoviesByGenre } from './choose.js';
+import { searchMovies } from './header.js';
+const searchInput = document.querySelector('.input');
+let query = searchInput.value;
+const gallery = document.querySelector('.gallery')
 // const API_KEY = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
-
+const genreSelect = document.querySelector('.genre')
 // Selecting DOM elements
 const prevBtn = document.getElementById('prevBtn'),
   nextBtn = document.getElementById('nextBtn'),
@@ -40,13 +44,22 @@ numbers.forEach((number, numIndex) => {
     // Set the current step to the clicked number link
 
     currentStep = numIndex + 1;
-    console.log(currentStep);
+    // console.log(currentStep);
     // Remove the "active" class from the previously active number link
     document.querySelector('.active').classList.remove('active');
     // Add the "active" class to the clicked number link
     number.classList.add('active');
-    fetchMovies(currentStep);
-
+    if (genreSelect.value !== 'Choose genre') {
+      gallery.innerHTML='';
+      fetchMoviesByGenre(currentStep);
+    } 
+    else if (searchInput.value.length !== 0 ){
+      gallery.innerHTML='';
+      searchMovies(query , currentStep)
+        } else {
+      gallery.innerHTML='';
+      fetchMovies(currentStep);
+    }
     updateBtnBehaviour(); // Update the button states
     disappearingBtns();
   });
@@ -57,8 +70,18 @@ prevBtn.addEventListener('click', () => {
   numbers[index].classList.remove('active');
   numbers[--index].classList.add('active');
   currentStep = currentStep - 1;
-  console.log(currentStep);
-  fetchMovies(currentStep);
+  // console.log(currentStep);
+  if (genreSelect.value !== 'Choose genre') {
+    gallery.innerHTML='';
+    fetchMoviesByGenre(currentStep);
+  } 
+  else if (searchInput.value.length !== 0 ){
+    gallery.innerHTML='';
+    searchMovies(query , currentStep)
+      } else {
+    gallery.innerHTML='';
+    fetchMovies(currentStep);
+  }
   updateBtnBehaviour();
   disappearingBtns();
 });
@@ -68,8 +91,18 @@ nextBtn.addEventListener('click', () => {
   numbers[index].classList.remove('active');
   numbers[++index].classList.add('active');
   currentStep = currentStep + 1;
-  console.log(currentStep);
-  fetchMovies(currentStep);
+  // console.log(currentStep);
+  if (genreSelect.value !== 'Choose genre') {
+    gallery.innerHTML='';
+    fetchMoviesByGenre(currentStep);
+  } 
+  else if (searchInput.value.length !== 0 ){
+    gallery.innerHTML='';
+    searchMovies(query , currentStep)
+      } else {
+    gallery.innerHTML='';
+    fetchMovies(currentStep);
+  }
   disappearingBtns();
   updateBtnBehaviour();
 });
