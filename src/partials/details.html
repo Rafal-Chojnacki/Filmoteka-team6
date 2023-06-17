@@ -1,10 +1,31 @@
 <div class="backdrop is-hidden">
   <div class="modal">
     <button type="button" class="modal__btnClose">X</button>
-    <img class="modal__moviePoster" />
+    <div class="modal__poster">
+      <img class="modal__moviePoster" />
+    </div>
+    
     <h2 class="modal__title">Title</h2>
-    <div class="modal__wrapper">
-      <div class="modal__scores">
+      <table class="modal__table">
+        <tr>
+          <td class="modal__scores">Vote / Votes</td>
+          <td><p class="modal__votes"></p></td>
+          <td><p class="modal__votes"></p></td>
+        </tr>
+        <tr>
+          <td class="modal__scores">Popularity</td>
+          <td colspan = "2"><p class="modal__popularity"></p></td>
+        </tr>
+        <tr>
+          <td class="modal__scores">Original Title</td>
+          <td colspan = "2"><p class="modal__originalTitle"></p></td>
+        </tr>
+        <tr>
+          <td class="modal__scores">Genre</td>
+          <td colspan = "2"><p class="modal__genre"></p></td>
+        </tr>
+      </table>
+      <!-- <div class="modal__scores">
         <p>Vote / Votes</p>
         <p>Popularity</p>
         <p>Original Title</p>
@@ -15,14 +36,15 @@
         <p class="modal__popularity"></p>
         <p class="modal__originalTitle"></p>
         <p class="modal__genre"></p>
-      </div>
-    </div>
+      </div> -->
     <span class="modal__subtitle">ABOUT</span>
     <p class="modal__about">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui autem sed non laboriosam minus
       nisi cum voluptatum cumque reprehenderit iste.
     </p>
-    <button type="button" class="modal__btnWatched">Add to watched</button>
-    <button type="button" class="modal__btnQueue">Add to queue</button>
+    <div class="modal__Btns">
+      <button type="button" class="modal__btnWatched">Add to watched</button>
+      <button type="button" class="modal__btnQueue">Add to queue</button>
+    </div>
   </div>
 </div>

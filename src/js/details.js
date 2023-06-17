@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 const API_KEY = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
 const modalBackdrop = document.querySelector('.backdrop');
 const btnClose = document.querySelector('.modal__btnClose');
@@ -63,7 +64,7 @@ function saveToWatched() {
   fetchId(movieId).then(data => {
     for (let i = 0; i < tempArray.length; i++) {
       if (tempArray[i].id === data.id) {
-        alert('Movie is already in library');
+        Notiflix.Notify.info('Movie is already added to watch');
         return;
       }
     }
@@ -80,7 +81,7 @@ function saveToQueue() {
   fetchId(movieId).then(data => {
     for (let i = 0; i < tempArray.length; i++) {
       if (tempArray[i].id === data.id) {
-        alert('Movie is already in library');
+        Notiflix.Notify.info('Movie is already added to queue')
         return;
       }
     }
