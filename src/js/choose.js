@@ -1,6 +1,9 @@
 import { showLoader } from "./header";
 import { hideLoader } from "./header";
 import { hideNoTitleMessage } from "./header";
+
+
+
 async function fetchGenre() {
   try {
     const response = await fetch(
@@ -21,23 +24,47 @@ const genreSelect = document.querySelector('.genre');
 
 const API_KEY = '6fc014c055bacb8460b83603c43b9093'
 
-let selectedGenre = '';
+let genre = '';
 
 genreSelect.addEventListener('change', handleGenreChange);
 
 function handleGenreChange(event) {
   gallery.innerHTML='';
 hideNoTitleMessage();
-selectedGenre = event.target.value;
-fetchMoviesByGenre(selectedGenre);
+genre = event.target.value;
+fetchMoviesByGenre(genre);
 // console.log(selectedGenre);
 }
 
-async function fetchMoviesByGenre(genre) {
+async function fetchMoviesByGenre(number) {
+  function getGenreId(genre) {
+    const genreMap = {
+      Action: 28,
+      Adventure: 12,
+      Animation: 16,
+      Comedy: 35,
+      Crime: 80,
+      Documentary: 99,
+      Drama: 18,
+      Family: 10751,
+      Fantasy: 14,
+      History: 36,
+      Horror: 27,
+      Music: 10402,
+      Mystery: 9648,
+      Romance: 10749,
+      'Science Fiction': 878,
+      'TV Movie': 10770,
+      Thriller: 53,
+      War: 10752,
+      Western: 37
+    };
+    return genreMap[genre];
+  }
   try {
     showLoader();
     const genreId = getGenreId(genre);
-    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`);
+    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${number}`);
     const data = await response.json();
     const genres = await fetchGenre();
     moviesGallery(data.results, genres);
@@ -109,3 +136,4 @@ gallery.insertAdjacentHTML('afterbegin', markup);
 
 }
 
+export {fetchMoviesByGenre , handleGenreChange};
