@@ -1,39 +1,38 @@
 <div class="backdrop is-hidden">
   <div class="modal">
     <button type="button" class="modal__btnClose">X</button>
-    <div class="modal__poster">
-      <img class="modal__moviePoster" />
-    </div>
-    
-    <h2 class="modal__title">Title</h2>
-      <table class="modal__table">
-        <tr>
-          <td class="modal__scores">Vote / Votes</td>
-          <td class="modal__voteCell"><p class="modal__vote"></p></td>
-          <td><p class="modal__votes"></p></td>
-        
-        </tr>
-        <tr>
-          <td class="modal__scores">Popularity</td>
-          <td colspan = "2"><p class="modal__popularity"></p></td>
-        </tr>
-        <tr>
-          <td class="modal__scores">Original Title</td>
-          <td colspan = "2"><p class="modal__originalTitle"></p></td>
-        </tr>
-        <tr>
-          <td class="modal__scores">Genre</td>
-          <td colspan = "2"><p class="modal__genre"></p></td>
-        </tr>
-      </table>
-    <span class="modal__subtitle">ABOUT</span>
-    <p class="modal__about">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui autem sed non laboriosam minus
-      nisi cum voluptatum cumque reprehenderit iste.
-    </p>
-    <div class="modal__Btns">
-      <button type="button" class="modal__btnWatched">Add to watched</button>
-      <button type="button" class="modal__btnQueue">Add to queue</button>
+    <div class="modal__wrapper">
+      <div class="modal__poster">
+        <img class="modal__moviePoster" />
+      </div>
+      <div class="modal__container">
+        <h2 class="modal__title">Title</h2>
+        <div class="modal__score_tables">
+          <div class="modal__scores">
+            <p>Vote / Votes</p>
+            <p>Popularity</p>
+            <p>Original Title</p>
+            <p>Genre</p>
+          </div>
+          <div class="modal__values">
+            <p class="modal__vote"></p>
+            <span> / </span>
+            <span class="modal__votes"></span>
+            <p class="modal__popularity"></p>
+            <p class="modal__originalTitle"></p>
+            <p p class="modal__genre"></p>
+          </div>
+        </div>
+        <p class="modal__subtitle">ABOUT</p>
+        <p class="modal__about">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui autem sed non laboriosam
+          minus nisi cum voluptatum cumque reprehenderit iste.
+        </p>
+        <div class="modal__btn-container">
+          <button type="button" class="modal__btnWatched">Add to watched</button>
+          <button type="button" class="modal__btnQueue">Add to queue</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
