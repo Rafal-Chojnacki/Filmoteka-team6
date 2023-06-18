@@ -12,7 +12,7 @@ const modalVote = document.querySelector('.modal__vote');
 const modalVotes = document.querySelector('.modal__votes');
 const modalPopularity = document.querySelector('.modal__popularity');
 const modalOrgTitle = document.querySelector('.modal__originalTitle');
-
+const gallery = document.querySelectorAll('.gallery');
 let movieId;
 
 function detailsHandler(clickedMovie) {
@@ -95,7 +95,9 @@ function saveToQueue() {
   });
 }
 
-gallery.addEventListener('click', detailsHandler);
+gallery.forEach(element => {
+  element.addEventListener('click', detailsHandler);
+});
 btnClose.addEventListener('click', toggleModal);
 btnWatched.addEventListener('click', saveToWatched);
 btnQueued.addEventListener('click', saveToQueue);
