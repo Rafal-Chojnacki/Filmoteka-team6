@@ -1,5 +1,6 @@
 td {
   width: 108px;
+  // border: solid 1px #000000;
 }
 p {
   display: inline-block;
@@ -15,13 +16,15 @@ p {
   z-index: 999;
 }
 .modal {
+  position: fixed;
+  top: 0px;
+  left: 20px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   max-height: fit-content;
   width: 280px;
   margin: 20 auto;
-
   background: white;
   overflow-x: hidden;
   z-index: 999;
@@ -31,6 +34,9 @@ p {
   position: relative;
   left: 250px;
   top: 16px;
+  &:hover {
+    cursor: pointer;
+  }
 }
   &__table {
     margin: 20px;
@@ -43,6 +49,31 @@ p {
     letter-spacing: 0em;
     text-align: left;
     margin: 0;
+  }
+  &__voteCell {
+    width: 20px;
+  }
+  &__vote {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: #FF6B01;
+    color: #FFFFFF;
+    width: 36px;
+    border-radius: 5px;
+    margin: 0;
+  }
+  &__votes {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+    
   }
   &__popularity { 
     font-family: Roboto;
