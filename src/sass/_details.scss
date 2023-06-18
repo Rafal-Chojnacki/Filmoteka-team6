@@ -1,115 +1,91 @@
-td {
-  width: 108px;
-  // border: solid 1px #000000;
-}
-p {
-  display: inline-block;
-  margin: 0;
-}
 .backdrop {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: fit-content;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.25);
   z-index: 999;
+  overflow: auto;
+  @include desktop {
+    background: (0, 0, 0, 0);
+  }
 }
 .modal {
-  position: fixed;
-  top: 0;
-  left: 15vw;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+  margin: 20 auto;
+  position: relative;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   max-height: fit-content;
   width: 280px;
-  margin: 20 auto;
   background: white;
-  overflow-x: hidden;
   z-index: 999;
-&__btnClose {
-  background: none;
-  border: none;
-  position: relative;
-  left: 250px;
-  top: 16px;
-  &:hover {
-    cursor: pointer;
+  @include tablet {
+    width: 704px;
+    margin: 219 auto;
   }
-}
-  &__table {
-    margin: 20px;
+  @include desktop {
+    width: 806px;
+    margin: 150 auto;
   }
-  &__values {
-    font-family: Roboto;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
-    margin: 0;
+  &__wrapper {
+    margin: 25px 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 68px;
+      margin: 40px 36px;
+    }
+    @include desktop {
+      margin: 10px 12px;
+      gap: 16px;
+    }
   }
-  &__voteCell {
-    width: 20px;
+  &__container {
+    flex: 1;
+    @include tablet {
+      max-width: 264px;
+    }
+    @include desktop {
+      max-width: 391px;
+    }
   }
-  &__vote {
-    font-family: Roboto;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 14px;
-    letter-spacing: 0em;
-    text-align: center;
-    background-color: #FF6B01;
-    color: #FFFFFF;
-    width: 36px;
-    border-radius: 5px;
-    margin: 0;
+
+  &__btnClose {
+    background: none;
+    border: none;
+    position: relative;
+    display: block;
+    left: calc(100% - 33px);
+    top: 16px;
+    font-size: large;
+    font-weight: 600;
+    &:hover {
+      cursor: pointer;
+    }
   }
-  &__votes {
-    font-family: Roboto;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 14px;
-    letter-spacing: 0em;
-    text-align: center;
-    
-  }
-  &__popularity { 
-    font-family: Roboto;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
-  }
-  &__originalTitle { 
-    font-family: Roboto;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
-  }
-  &__genre { 
-    font-family: Roboto;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
-  }
-  &__poster {
-    margin-top: 32px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+
   &__moviePoster {
     width: 240px;
     height: 357px;
+    border-radius: 5px;
+    @include tablet {
+      width: 264px;
+      height: 373px;
+      margin-bottom: 40px;
+    }
+    @include desktop {
+      width: 375px;
+      height: 478px;
+      margin-bottom: 40px;
+    }
+  }
+  &__score_tables {
+    display: flex;
+    flex-wrap: wrap;
   }
   &__title {
     font-family: 'Roboto';
@@ -118,18 +94,65 @@ p {
     font-size: 20px;
     line-height: 23px;
     color: black;
-    margin: 20px;
+    margin: 20px 0;
+    @include tablet {
+      margin: 0 0 8px 0;
+    }
+    @include desktop {
+      font-size: 30px;
+      line-height: 35px;
+    }
   }
   &__scores {
-    color: #8C8C8C;
+    width: 50%;
+    margin: 0;
+    color: #8c8c8c;
     font-family: Roboto;
     font-size: 12px;
     font-weight: 500;
     line-height: 16px;
     letter-spacing: 0em;
     text-align: left;
+    display: inline-block;
   }
- 
+  &__values {
+    width: 50%;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    display: inline-block;
+  }
+  &__vote {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: #ff6b01;
+    color: #ffffff;
+    width: 36px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  &__votes {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    width: 36px;
+    display: inline-block;
+  }
+  &__popularity {
+    margin: 0;
+  }
   &__subtitle {
     display: inline-block;
     font-family: Roboto;
@@ -138,8 +161,8 @@ p {
     line-height: 16px;
     letter-spacing: 0em;
     text-align: left;
-    margin: 4px 20px;
-
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
   &__about {
     font-family: Roboto;
@@ -148,57 +171,45 @@ p {
     line-height: 20px;
     letter-spacing: 0em;
     text-align: left;
-    margin: 4px 20px 20px 20px;
+    margin: 0;
   }
-  &__Btns {
+  &__btn-container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 46px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  &__btnWatched {
-    width: 110px;
-    height: 44px;
-    background: none;
-    font-family: 'Robot',sans-serif;
-    font-weight: 500;
-    color: #000000;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    cursor: pointer;
-    &:hover { 
-      color: #FFFFFF;
-      border: 1px solid #FF6B01;
-      background: #FF6B01;
-      }
+    margin-top: 20px;
+    margin-bottom: 40px;
+    @include desktop {
+      justify-content: left;
     }
-  &__btnQueue {
+    button {
       width: 110px;
       height: 44px;
       background: none;
-      font-family: 'Robot',sans-serif;
+      font-family: 'Robot', sans-serif;
       font-weight: 500;
       color: #000000;
       border: 1px solid #000000;
       border-radius: 5px;
       cursor: pointer;
-      &:hover { 
-        color: #FFFFFF;
-        border: 1px solid #FF6B01;
-        background: #FF6B01;
+      @include tablet {
+        width: 125px;
+      }
+      @include desktop {
+        width: 136px;
+        margin-right: 15px;
+      }
+      &:hover {
+        color: #ffffff;
+        border: 1px solid #ff6b01;
+        background: #ff6b01;
       }
     }
+  }
 }
 .is-hidden {
   display: none;
 }
 
-
-// .loader-hidden{
-// display: none;
-// }
-
 .aktiv {
-background-color: #FF6B01;
+  background-color: #ff6b01;
 }
