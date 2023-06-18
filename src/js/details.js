@@ -8,6 +8,7 @@ const modalImg = document.querySelector('.modal__moviePoster');
 const modalTitle = document.querySelector('.modal__title');
 const modalAbout = document.querySelector('.modal__about');
 const modalGenre = document.querySelector('.modal__genre');
+const modalVote = document.querySelector('.modal__vote');
 const modalVotes = document.querySelector('.modal__votes');
 const modalPopularity = document.querySelector('.modal__popularity');
 const modalOrgTitle = document.querySelector('.modal__originalTitle');
@@ -23,7 +24,8 @@ function detailsHandler(clickedMovie) {
     fetchId(movieId).then(movieData => {
       modalImg.setAttribute('src', `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`);
       modalTitle.textContent = movieData.title;
-      modalVotes.textContent = `${movieData.vote_average}/ ${movieData.vote_count}`;
+      modalVote.textContent = `${movieData.vote_average}`;
+      modalVotes.textContent = `/ ${movieData.vote_count}`;
       modalPopularity.textContent = movieData.popularity;
       modalOrgTitle.textContent = movieData.original_title;
       modalAbout.textContent = movieData.overview;
@@ -64,12 +66,14 @@ function saveToWatched() {
   fetchId(movieId).then(data => {
     for (let i = 0; i < tempArray.length; i++) {
       if (tempArray[i].id === data.id) {
-        Notiflix.Notify.info('Movie is already added to watch');
+        Notiflix.Notify.warning('Movie is already added to watch');
         return;
       }
     }
+    
     tempArray.push(data);
     localStorage.setItem('watched-films', JSON.stringify(tempArray));
+    Notiflix.Notify.info('Movie is added to watched')
   });
 }
 
@@ -77,16 +81,18 @@ function saveToQueue() {
   let tempArray = [];
   if (localStorage.getItem('queued-films')) {
     tempArray = JSON.parse(localStorage.getItem('queued-films'));
+    
   }
   fetchId(movieId).then(data => {
     for (let i = 0; i < tempArray.length; i++) {
       if (tempArray[i].id === data.id) {
-        Notiflix.Notify.info('Movie is already added to queue')
+        Notiflix.Notify.warning('Movie is already added to queue')
         return;
       }
     }
     tempArray.push(data);
     localStorage.setItem('queued-films', JSON.stringify(tempArray));
+    Notiflix.Notify.info('Movie is added to queue')
   });
 }
 
