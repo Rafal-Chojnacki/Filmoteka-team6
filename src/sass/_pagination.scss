@@ -1,76 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
-a {
-  color: #000;
-  text-decoration: none;
-}
-
-.container {
-  width: 100%;
-  height: 40px;
+.pagination ul {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  justify-content: center;
+  height: 150px;
+  padding: 10px;
 }
-.arrow-left {
-  fill: #000;
-}
-.arrow-right {
-  fill: #000;
-}
-.button {
-  border: none;
-  background-color: none;
-  color: none;
-  border-radius: 5px;
-}
-
-.dots {
-  display: none;
-}
-
-.startBtn,
-.endBtn {
-  width: 40px;
-  height: 40px;
-  background-color: #f7f7f7;
-  cursor: pointer;
-  margin-left: 16px;
-  margin-right: 16px;
-}
-.prevNext {
-  background-color: #fff;
-  display: none;
-}
-
-.link {
-  padding: 10px 15px 10px 15px;
-  width: 40px;
-  height: 40px;
-  font-family: 'Roboto';
-  font-weight: 500;
+.pagination ul li {
+  display: flex;
+  list-style: none;
+  line-height: 40px;
+  text-align: center;
+  justify-content: center;
   font-size: 12px;
-  line-height: 16px;
+  font-weight: 500;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  margin: 0 2px;
+  transition: all 0.3s ease;
 }
-.link.active {
-  border-radius: 5px;
-  background-color: #ff6b08;
-  color: #fff;
+.pagination ul li.pageNumber {
+  text-align: center;
 }
-.links {
-  column-gap: 16px;
-  font-family: 'Roboto';
-}
-
-.invisible {
+.pagination ul li.last {
   display: none;
+}
+.pagination ul li.dots {
+  display: none;
+}
+.pagination ul li.btn {
+  background-color: #f7f7f7;
+  justify-content: center;
+  border-radius: 5px;
+}
+.pagination ul li.active,
+.pagination ul li.pageNumber:hover,
+.pagination ul li.btn:hover {
+  background-color: #ff6b08;
+  color: #ffffff;
+  border-radius: 5px;
 }
 
 @include tablet {
-  .dots {
+  .pagination ul li.dots {
     display: contents;
-    padding: 10px 15px 10px 15px;
+    text-align: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: default;
   }
+  .pagination ul li.last {
+    display: flex;
+    margin: 16px;
+  }
+}
+.dark__theme .pagination {
+  color: #ffffff;
+}
+.dark__theme .pagination ul li.btn {
+  background-color: #ff6b08;
 }
