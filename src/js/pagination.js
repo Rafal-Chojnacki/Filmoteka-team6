@@ -1,4 +1,5 @@
 'use strict';
+
 import { fetchMovies } from './moviesGallery';
 const ulTag = document.querySelector('.pagination ul');
 const moviesContainer = document.querySelector('.gallery');
@@ -77,6 +78,7 @@ function paginationBtns(total_pages, page) {
   for (let pageLength = beforePages - 1; pageLength <= afterPages + 1; pageLength++) {
     if (pageLength < 0) {
       continue;
+
     }
     if (pageLength > total_pages || pageLength > total_pages + 1) {
       continue;
