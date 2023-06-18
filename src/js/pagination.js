@@ -1,5 +1,5 @@
 'use strict';
-
+import { scrollToTop } from './moviesGallery.js';
 import { fetchMovies } from './moviesGallery.js';
 import { fetchMoviesByGenre } from './choose.js';
 import { searchMovies } from './header.js';
@@ -18,6 +18,29 @@ let currentStep = 1;
 // Function to update the button states
 
 const dots = document.querySelectorAll('.dots');
+
+
+genreSelect.addEventListener('change', () => {
+  numbers.forEach(number => {
+    number.classList.remove('active');
+  });
+  numbers[0].classList.add('active');
+
+  gallery.innerHTML = '';
+  fetchMoviesByGenre(1);
+
+  searchInput.value = '';
+
+  query = '';
+
+  currentStep = 1;
+
+  updateBtnBehaviour();
+
+  disappearingBtns();
+});
+
+
 
 const updateBtnBehaviour = () => {
   // If we are at the last step
@@ -55,11 +78,13 @@ numbers.forEach((number, numIndex) => {
     } 
     else if (searchInput.value.length !== 0 ){
       gallery.innerHTML='';
+
       searchMovies(query , currentStep)
         } else {
       gallery.innerHTML='';
       fetchMovies(currentStep);
     }
+    scrollToTop();
     updateBtnBehaviour(); // Update the button states
     disappearingBtns();
   });
@@ -82,6 +107,7 @@ prevBtn.addEventListener('click', () => {
     gallery.innerHTML='';
     fetchMovies(currentStep);
   }
+  scrollToTop();
   updateBtnBehaviour();
   disappearingBtns();
 });
@@ -103,6 +129,7 @@ nextBtn.addEventListener('click', () => {
     gallery.innerHTML='';
     fetchMovies(currentStep);
   }
+  scrollToTop();
   disappearingBtns();
   updateBtnBehaviour();
 });
