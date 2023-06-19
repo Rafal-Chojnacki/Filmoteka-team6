@@ -10,7 +10,7 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 230px;
+  height: 290px;
   width: 100%;
   margin: 0 auto 60px auto;
   background-image: url(../images/tlo320.jpg);
@@ -24,7 +24,7 @@ a {
     background-image: url(../images/tloheader.jpg);
 
     opacity: 1;
-    height: 216px;
+    height: 230px;
     width: 100%;
   }
 
@@ -34,7 +34,7 @@ a {
     background-repeat: no-repeat;
     background-image: url(../images/tloheader.jpg);
 
-    height: 216px;
+    height: 230px;
     // max-width: 1280px;
   }
 }
@@ -214,6 +214,7 @@ cursor: pointer;
   margin-top: 15px;
   border-radius: 6px;
   padding: 3px;
+  outline: none;
 }
 
 
@@ -221,4 +222,61 @@ cursor: pointer;
 .position-added{
   display: flex;
   justify-content: space-between;
+}
+
+.center {
+  margin: 0 auto;
+}
+.ukryj {
+  display: none;
+}
+.losuj {
+  
+margin-top: 15px;
+border-radius: 6px;
+outline: none;
+  font-size: 12px;
+  background-color: rgba(255, 107, 1, 0.8);
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+    // background: none;
+    color:black;
+    padding: 5px;
+    // margin-right: 30px;
+    @include tablet {
+      font-size: 16px;
+    }
+    @include desktop {
+      font-size: 16px;
+    }
+}
+
+.losujdiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include tablet {
+    margin-right: 30px;
+  }
+}
+
+.tabdes {
+  display: none;
+  @include tablet {
+display: block;
+  }
+@include desktop {
+
+}
+
+}
+
+.fon {
+  @include tablet {
+display: none;
+  }
+
+  @include desktop{
+display: none;  }
 }
