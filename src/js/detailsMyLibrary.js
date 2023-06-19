@@ -10,6 +10,8 @@ const modalVotes = document.querySelector('.modal__votes');
 const modalPopularity = document.querySelector('.modal__popularity');
 const modalOrgTitle = document.querySelector('.modal__originalTitle');
 const gallery = document.querySelectorAll('.gallery');
+const btnWatched = document.querySelector('.modal__btnWatched');
+const btnQueued = document.querySelector('.modal__btnQueue');
 let movieId;
 
 function detailsHandler(clickedMovie) {
@@ -18,6 +20,15 @@ function detailsHandler(clickedMovie) {
   if (clickedMovie.target.matches('img')) {
     movieId = clickedMovie.target.parentNode.id;
     //console.log(movieId);
+    console.log(clickedMovie.currentTarget);
+    if (clickedMovie.currentTarget.classList.contains('myLibrary--queue')) {
+      btnQueued.classList.remove('is-hidden');
+      btnWatched.classList.add('is-hidden');
+    }
+    if (clickedMovie.currentTarget.classList.contains('myLibrary--watched')) {
+      btnWatched.classList.remove('is-hidden');
+      btnQueued.classList.add('is-hidden');
+    }
     fetchId(movieId).then(movieData => {
       modalImg.setAttribute('src', `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`);
       modalTitle.textContent = movieData.title;
@@ -54,9 +65,42 @@ function EscapeCloseModal(e) {
 function clickOffModal(e) {
   if (e.target === modalBackdrop) toggleModal();
 }
-
-
-
+function removeFromWatched() {
+  let tempArray = [];
+  if (localStorage.getItem('watched-films')) {
+    tempArray = JSON.parse(localStorage.getItem('watched-films'));
+  }
+  fetchId(movieId).then(data => {
+    for (let i = 0; i < tempArray.length; i++) {
+      if (tempArray[i].id === data.id) {
+        const itemIndex = tempArray.findIndex(item => item.id === data.id);
+        tempArray.splice(itemIndex, 1);
+        localStorage.setItem('watched-films', JSON.stringify(tempArray));
+        const objectToRemove = document.querySelector(`#${CSS.escape(data.id)}`);
+        objectToRemove.parentNode.remove();
+        return;
+      }
+    }
+  });
+}
+function removeFromQueued() {
+  let tempArray = [];
+  if (localStorage.getItem('queued-films')) {
+    tempArray = JSON.parse(localStorage.getItem('queued-films'));
+  }
+  fetchId(movieId).then(data => {
+    for (let i = 0; i < tempArray.length; i++) {
+      if (tempArray[i].id === data.id) {
+        const itemIndex = tempArray.findIndex(item => item.id === data.id);
+        tempArray.splice(itemIndex, 1);
+        localStorage.setItem('queued-films', JSON.stringify(tempArray));
+        const objectToRemove = document.querySelector(`#${CSS.escape(data.id)}`);
+        objectToRemove.parentNode.remove();
+        return;
+      }
+    }
+  });
+}
 
 gallery.forEach(element => {
   element.addEventListener('click', detailsHandler);
@@ -64,3 +108,5 @@ gallery.forEach(element => {
 btnClose.addEventListener('click', toggleModal);
 document.addEventListener('keydown', EscapeCloseModal);
 modalBackdrop.addEventListener('click', clickOffModal);
+btnWatched.addEventListener('click', removeFromWatched);
+btnQueued.addEventListener('click', removeFromQueued);
