@@ -263,11 +263,17 @@ outline: none;
 
 .tabdes {
   display: none;
+ 
   @include tablet {
 display: block;
+border-radius: 6px;
+
+
   }
 @include desktop {
-
+  display: block;
+  border-radius: 6px;
+  
 }
 
 }
