@@ -56,17 +56,24 @@
 
   &__btnClose {
     background: none;
+    fill: #000000;
     border: none;
     position: relative;
-    display: block;
     left: calc(100% - 33px);
     top: 16px;
-    font-size: large;
-    font-weight: 600;
+
+    &-svg {
+      fill: #000000;
+      width: 16px;
+      height: 16px;
+    }
+    
     &:hover {
       cursor: pointer;
     }
+   
   }
+  
 
   &__moviePoster {
     width: 240px;
@@ -92,6 +99,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
+    text-transform: uppercase;
     line-height: 23px;
     color: black;
     margin: 20px 0;
@@ -149,6 +157,16 @@
     border-radius: 5px;
     width: 36px;
     display: inline-block;
+  }
+  &__originalTitle {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-transform: uppercase;
+
   }
   &__popularity {
     margin: 0;
