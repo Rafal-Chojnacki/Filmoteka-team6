@@ -36,7 +36,10 @@ function myLibraryWatchedGallery() {
       .join('');
     myLibraryWatched.insertAdjacentHTML('afterbegin', fetchedWatchedMoviesGalery);
   } else {
-    myLibraryWatched.insertAdjacentHTML('afterbegin', 'There is no movies in your watched gallery');
+    myLibraryWatched.insertAdjacentHTML(
+      'afterbegin',
+      'There are no movies in your watched gallery',
+    );
   }
 }
 
@@ -67,7 +70,7 @@ function myLibraryQueueGallery() {
       .join('');
     myLibraryQueue.insertAdjacentHTML('afterbegin', fetchedQueuedMoviesGalery);
   } else {
-    myLibraryQueue.insertAdjacentHTML('afterbegin', 'There is no queued movies in your gallery');
+    myLibraryQueue.insertAdjacentHTML('afterbegin', 'There are no queued movies in your gallery');
   }
 }
 
