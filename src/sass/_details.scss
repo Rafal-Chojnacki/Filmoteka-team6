@@ -79,6 +79,7 @@
     width: 240px;
     height: 357px;
     border-radius: 5px;
+    object-fit: contain;
     @include tablet {
       width: 264px;
       height: 373px;

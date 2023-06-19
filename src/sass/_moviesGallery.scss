@@ -8,8 +8,9 @@
     margin: 20px 20px 0px 20px;
     padding-bottom: 10px;
     &-img {
-      width: 87.5vw;
-      height: 125.625vw;
+      max-width: 100%;
+      // height: 125.625vw;
+      object-fit: cover;
       border-radius: 5px;
       -webkit-box-shadow: 3px 4px 15px 2px rgba(66, 68, 90, 1);
       -moz-box-shadow: 3px 4px 15px 2px rgba(66, 68, 90, 1);
@@ -69,6 +70,7 @@
       &-img {
         width: 43.75vw;
         height: 59.24vw;
+        object-fit: cover;
       }
     }
   }
@@ -85,6 +87,7 @@
       &-img {
         width: 30.6vw;
         height: 44.58vw;
+        object-fit: cover;
       }
     }
   }
