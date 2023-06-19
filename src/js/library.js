@@ -12,7 +12,7 @@ function myLibraryWatchedGallery() {
   myLibraryWatched.classList.remove('is-hidden');
   myLibraryQueue.classList.add('is-hidden');
   queueButton.classList.remove('aktiv');
-watchedButton.classList.add('aktiv');
+  watchedButton.classList.add('aktiv');
 
   if (localStorage.getItem('watched-films')) {
     fetchedMovies = localStorage.getItem('watched-films');
@@ -35,6 +35,11 @@ watchedButton.classList.add('aktiv');
       )
       .join('');
     myLibraryWatched.insertAdjacentHTML('afterbegin', fetchedWatchedMoviesGalery);
+  } else {
+    myLibraryWatched.insertAdjacentHTML(
+      'afterbegin',
+      'There are no movies in your watched gallery',
+    );
   }
 }
 
@@ -46,7 +51,7 @@ function myLibraryQueueGallery() {
   myLibraryWatched.classList.add('is-hidden');
   myLibraryQueue.classList.remove('is-hidden');
   watchedButton.classList.remove('aktiv');
-queueButton.classList.add('aktiv');
+  queueButton.classList.add('aktiv');
   if (localStorage.getItem('queued-films')) {
     fetchedMovies = localStorage.getItem('queued-films');
     const fetchedMoviesArray = JSON.parse(fetchedMovies);
@@ -64,9 +69,10 @@ queueButton.classList.add('aktiv');
       )
       .join('');
     myLibraryQueue.insertAdjacentHTML('afterbegin', fetchedQueuedMoviesGalery);
+  } else {
+    myLibraryQueue.insertAdjacentHTML('afterbegin', 'There are no queued movies in your gallery');
   }
 }
 
 queueButton.addEventListener('click', myLibraryQueueGallery);
 window.addEventListener('load', myLibraryWatchedGallery);
-

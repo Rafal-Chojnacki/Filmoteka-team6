@@ -26,7 +26,7 @@ let totalPages;
 // totalPages = 20;
 // paginationBtns(totalPages, 1);
 const BuildGallery = async page => {
-  data = await fetchMovies(page, paginationContainer);
+const data = await fetchMovies(page, paginationContainer);
   // totalPages = data.total_pages;
   totalPages = 500;
   paginationBtns(totalPages, page);

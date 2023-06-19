@@ -8,4 +8,4 @@ import './js/switchDayNight';
 import './js/details';
 import './js/footer';
 import './js/choose';
-
+import './js/movieday';
