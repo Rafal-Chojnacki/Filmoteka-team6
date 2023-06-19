@@ -5,6 +5,8 @@ const loader = document.getElementById('loader');
 const notitle = document.querySelector('.notitle');
 const API_KEY = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
 let genreMap = {};
+const hidenPagination = document.querySelector('.hidenPagination');
+
 
 
 
@@ -26,6 +28,8 @@ async function fetchGenres() {
 
 async function searchMovies(query, page = 1, perPage = 20) {
   try {
+  hidenPagination.classList.remove('ukryj')
+
     gallery.innerHTML = "";
     showLoader();
 
@@ -40,8 +44,12 @@ async function searchMovies(query, page = 1, perPage = 20) {
 
     if (movies.length === 0) {
       showNoTitleMessage();
+  hidenPagination.classList.add('ukryj')
+
       gallery.innerHTML = '<p class="myfriend"></p>';
     } else {
+  hidenPagination.classList.remove('ukryj')
+
       hideNoTitleMessage();
     }
   } catch (error) {
