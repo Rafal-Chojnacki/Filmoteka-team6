@@ -11,8 +11,8 @@ const modalVotes = document.querySelector('.modal__votes');
 const modalPopularity = document.querySelector('.modal__popularity');
 const modalOrgTitle = document.querySelector('.modal__originalTitle');
 const gallery = document.querySelectorAll('.gallery');
-const btnWatched = document.querySelector('.modal__btnWatched');
-const btnQueued = document.querySelector('.modal__btnQueue');
+const btnWatched = document.querySelector('.modal__btnRemoveWatched');
+const btnQueued = document.querySelector('.modal__btnRemoveQueue');
 let movieId;
 
 function detailsHandler(clickedMovie) {
