@@ -24,30 +24,42 @@ async function fetchGenres() {
   }
 }
 
-async function searchMovies(query, page = 1, perPage = 20){
+async function searchMovies(query, page = 1, perPage = 20) {
   try {
-    
-    gallery.innerHTML=""
-    showLoader(); 
-    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&include_adult=false&page=${page}`);
+    gallery.innerHTML = "";
+    showLoader();
+
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&include_adult=false&page=${page}`
+    );
     const data = await response.json();
-    const movies = data.results.slice(0,perPage);
-    hideLoader(); 
+    const movies = data.results.slice(0, perPage);
+
+    hideLoader();
     renderGallery(movies);
 
     if (movies.length === 0) {
-      hideLoader();
       showNoTitleMessage();
-      gallery.innerHTML ='<p class="myfriend"></p>'
+      gallery.innerHTML = '<p class="myfriend"></p>';
     } else {
       hideNoTitleMessage();
     }
   } catch (error) {
     console.log(error.toString());
-    hideLoader(); 
+    hideLoader();
     showNoTitleMessage();
   }
 }
+
+function dynamicSearch(event) {
+  const query = event.target.value;
+  if (query.length >= 1) {
+    searchMovies(query);
+  }
+}
+
+searchInput.addEventListener("input", dynamicSearch);
+
 
 
 

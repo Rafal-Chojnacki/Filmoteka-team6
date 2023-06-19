@@ -44,7 +44,8 @@
 }
 
 .watched {
-    width: 152px;
+  // margin-top: 20px;
+    width: 130px;
     height: 44px;
     margin-right:32px ;
     background: none;
@@ -55,10 +56,21 @@
     border: 1px solid #FFFFFF;
     border-radius: 5px;
     cursor: pointer;
+    @include tablet{
+      width: 152px;
+
+    }
+
+    @include desktop{
+      width: 152px;
+
+    }
 }
 
 .queue {
-    width: 152px;
+  // margin-top: 20px;
+
+    width: 130px;
     height: 44px;
     background: none;
  font-family: 'Robot',sans-serif;
@@ -67,6 +79,15 @@
     border: 1px solid #FFFFFF;
 border-radius: 5px;
 cursor: pointer;
+@include tablet{
+  width: 152px;
+
+}
+
+@include desktop{
+  width: 152px;
+
+}
 
 }
 
