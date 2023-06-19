@@ -68,6 +68,7 @@ a {
 }
 
 .header-flex {
+  margin: 0 auto;;
   display: flex;
   justify-content: space-between;
 }
@@ -108,12 +109,13 @@ a {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   margin-top: 45px;
-  margin-right: 32px;
+  margin-right: 10px;
   color: white;
   padding-bottom: 3px;
 }
 
 .header_input {
+  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,7 +132,7 @@ a {
   height: 20px;
   border: none;
   color: white;
-  padding: 5px;
+  padding-bottom: 10px;
   @include tablet {
     width: 290px;
     // background: url(../images/tloinputa.png);
@@ -177,7 +179,7 @@ a {
 
 
 .header__genre {
-  background-color: yellow;
+  // background-color: yellow;
   width: 100px;
   margin-left: 40px;
   // margin-top: 30px;
@@ -205,5 +207,18 @@ width: 500px;
 }
 
 .genre {
-  background-color: lightgray;
+  background-color: rgba(255, 107, 1, 0.8);
+cursor: pointer;
+  // background: none;
+  color:black;
+  margin-top: 15px;
+  border-radius: 6px;
+  padding: 3px;
+}
+
+
+
+.position-added{
+  display: flex;
+  justify-content: space-between;
 }
