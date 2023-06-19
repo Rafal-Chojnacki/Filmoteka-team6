@@ -13,10 +13,10 @@ function myLibraryWatchedGallery() {
   myLibraryQueue.classList.add('is-hidden');
   queueButton.classList.remove('aktiv');
   watchedButton.classList.add('aktiv');
-
-  if (localStorage.getItem('watched-films')) {
-    fetchedMovies = localStorage.getItem('watched-films');
-    const fetchedMoviesArray = JSON.parse(fetchedMovies);
+  let fetchedMovies = localStorage.getItem('watched-films');
+  let fetchedMoviesArray = JSON.parse(fetchedMovies);
+  console.log(fetchedMoviesArray);
+  if (fetchedMoviesArray && fetchedMoviesArray.length>0) {
     const fetchedWatchedMoviesGalery = fetchedMoviesArray
       .map(
         gallery =>
@@ -35,7 +35,8 @@ function myLibraryWatchedGallery() {
       )
       .join('');
     myLibraryWatched.insertAdjacentHTML('afterbegin', fetchedWatchedMoviesGalery);
-  } else {
+  } 
+  else {
     myLibraryWatched.insertAdjacentHTML(
       'afterbegin',
       'There are no movies in your watched gallery',
@@ -52,9 +53,11 @@ function myLibraryQueueGallery() {
   myLibraryQueue.classList.remove('is-hidden');
   watchedButton.classList.remove('aktiv');
   queueButton.classList.add('aktiv');
-  if (localStorage.getItem('queued-films')) {
-    fetchedMovies = localStorage.getItem('queued-films');
-    const fetchedMoviesArray = JSON.parse(fetchedMovies);
+  let fetchedMovies = localStorage.getItem('queued-films');
+  let fetchedMoviesArray = JSON.parse(fetchedMovies);
+  console.log(fetchedMoviesArray);
+  if (fetchedMoviesArray && fetchedMoviesArray.length>0) {
+    
     const fetchedQueuedMoviesGalery = fetchedMoviesArray
       .map(
         gallery =>
