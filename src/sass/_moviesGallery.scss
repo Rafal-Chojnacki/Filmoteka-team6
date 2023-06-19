@@ -3,6 +3,10 @@
   flex-direction: column;
   min-width: 320px;
 
+  &__link {
+    margin: 0 auto;
+  }
+
   &__item {
 
     margin: 20px 20px 0px 20px;
