@@ -1,6 +1,7 @@
 import { showLoader } from "./header";
 import { hideLoader } from "./header";
 import { hideNoTitleMessage } from "./header";
+const hidenPagination = document.querySelector('.hidenPagination');
 
 
 
@@ -29,6 +30,7 @@ let genre = '';
 genreSelect.addEventListener('change', handleGenreChange);
 
 function handleGenreChange(event) {
+  hidenPagination.classList.remove('ukryj')
   gallery.innerHTML='';
 hideNoTitleMessage();
 genre = event.target.value;
