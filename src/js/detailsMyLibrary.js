@@ -16,12 +16,9 @@ const btnQueued = document.querySelector('.modal__btnRemoveQueue');
 let movieId;
 
 function detailsHandler(clickedMovie) {
-  //console.log(clickedMovie.target);
 
   if (clickedMovie.target.matches('img')) {
     movieId = clickedMovie.target.parentNode.id;
-    //console.log(movieId);
-    console.log(clickedMovie.currentTarget);
     if (clickedMovie.currentTarget.classList.contains('myLibrary--queue')) {
       btnQueued.classList.remove('is-hidden');
       btnWatched.classList.add('is-hidden');
@@ -39,7 +36,6 @@ function detailsHandler(clickedMovie) {
       modalOrgTitle.textContent = movieData.original_title;
       modalAbout.textContent = movieData.overview;
       modalGenre.textContent = movieData.genres[0].name;
-      //console.log(movieData);
     });
     toggleModal();
   } else return;
@@ -82,9 +78,7 @@ function removeFromWatched() {
         toggleModal();
       }
     }
-    myLibraryWatchedGallery();
   });
-  // if(localStorage.getItem('watched-films'))
 }
 function removeFromQueued() {
   let tempArray = [];
