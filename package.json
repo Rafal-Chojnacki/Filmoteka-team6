@@ -18,7 +18,7 @@
     "url": "https://github.com/Rafal-Chojnacki/Filmoteka-team6/issues"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.3",
+    "@parcel/transformer-sass": "^2.9.2",
     "parcel": "^2.8.3",
     "posthtml-include": "^1.7.4"
   },
