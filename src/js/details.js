@@ -66,14 +66,14 @@ function saveToWatched() {
   fetchId(movieId).then(data => {
     for (let i = 0; i < tempArray.length; i++) {
       if (tempArray[i].id === data.id) {
-        Notiflix.Notify.warning('Movie is already in library').setPosition('bottom-left');
+        Notiflix.Notify.warning('Movie is already in library');
         return;
       }
     }
 
     tempArray.push(data);
     localStorage.setItem('watched-films', JSON.stringify(tempArray));
-    Notiflix.Notify.info('Movie has been added to library').setPosition('bottom-left');
+    Notiflix.Notify.info('Movie has been added to library');
   });
 }
 
@@ -85,13 +85,13 @@ function saveToQueue() {
   fetchId(movieId).then(data => {
     for (let i = 0; i < tempArray.length; i++) {
       if (tempArray[i].id === data.id) {
-        Notiflix.Notify.warning('Movie is already in queue').setPosition('bottom-left');
+        Notiflix.Notify.warning('Movie is already in queue');
         return;
       }
     }
     tempArray.push(data);
     localStorage.setItem('queued-films', JSON.stringify(tempArray));
-    Notiflix.Notify.info('Movie has been added to queue').setPosition('bottom-left');
+    Notiflix.Notify.info('Movie has been added to queue');
   });
 }
 
