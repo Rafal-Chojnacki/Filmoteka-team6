@@ -1,6 +1,10 @@
 const gallery = document.querySelector('.gallery');
 const paginations = document.querySelector('.pagination');
 const hidenPagination = document.querySelector('.hidenPagination');
+const notitle = document.querySelector('.notitle');
+function hideNoTitleMessage() {
+  notitle.style.display = 'none';
+}
 
 const genreMap = {
     28: "Akcja",
@@ -57,7 +61,9 @@ const markup = movies.map(movie =>{
 }
 
 async function randomFilm() {
+
   try {
+    hideNoTitleMessage();
     hidenPagination.classList.add('ukryj')
     const apiKey = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
     const endpoint = 'https://api.themoviedb.org/3/discover/movie';
@@ -96,4 +102,8 @@ async function randomFilm() {
   }
 }
 const losuj = document.querySelector('.losuj')
+const losuj2 = document.querySelector('.losuj2')
+
 losuj.addEventListener('click',randomFilm);
+losuj2.addEventListener('click',randomFilm);
+
