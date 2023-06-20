@@ -54,7 +54,6 @@ function myLibraryQueueGallery() {
   queueButton.classList.add('aktiv');
   let fetchedMovies = localStorage.getItem('queued-films');
   let fetchedMoviesArray = JSON.parse(fetchedMovies);
-  console.log(fetchedMoviesArray);
   if (fetchedMoviesArray && fetchedMoviesArray.length>0) {
     
     const fetchedQueuedMoviesGalery = fetchedMoviesArray
