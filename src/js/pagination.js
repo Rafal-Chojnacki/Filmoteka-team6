@@ -9,8 +9,8 @@ const searchInput = document.querySelector('.input');
 const ulTag = document.querySelector('.pagination ul');
 const moviesContainer = document.querySelector('.gallery');
 const APIKey = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
+const hidenPagination = document.querySelector('.hidenPagination');
 let genreEvent;
-
 
 const GetTotalPages = async (event, page) => {
   let totalPages;
@@ -18,7 +18,9 @@ const GetTotalPages = async (event, page) => {
   if (genreSelect.value !== 'Choose genre') {
     data = await handleGenreChange(event, page);
   } else if (searchInput.value.trim() === '') {
+    hidenPagination.classList.remove('ukryj');
     data = await fetchMovies(page);
+    console.log('2');
   } else {
     data = await searchMovies(searchInput.value, page);
   }
@@ -31,6 +33,7 @@ const BuildGallery = async (event, page) => {
 };
 searchInput.addEventListener('input', () => {
   genreSelect.value = 'Choose genre';
+  console.log('1');
   BuildGallery(null, 1);
 });
 genreSelect.addEventListener('change', event => {

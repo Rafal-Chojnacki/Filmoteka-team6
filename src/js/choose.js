@@ -1,7 +1,6 @@
 import { showLoader } from './header';
 import { hideLoader } from './header';
 import { hideNoTitleMessage } from './header';
-const hidenPagination = document.querySelector('.hidenPagination');
 
 async function fetchGenre() {
   try {
@@ -26,16 +25,15 @@ let genre = '';
 
 genreSelect.addEventListener('change', handleGenreChange);
 
-function handleGenreChange(event) {
-  hidenPagination.classList.remove('ukryj');
+async function handleGenreChange(event, page) {
   gallery.innerHTML = '';
   hideNoTitleMessage();
   genre = event.target.value;
-  fetchMoviesByGenre(genre);
+  return fetchMoviesByGenre(genre, page);
   // console.log(selectedGenre);
 }
 
-async function fetchMoviesByGenre(number) {
+async function fetchMoviesByGenre(choosedGenre, page) {
   function getGenreId(genre) {
     const genreMap = {
       Action: 28,
@@ -62,9 +60,9 @@ async function fetchMoviesByGenre(number) {
   }
   try {
     showLoader();
-    const genreId = getGenreId(genre);
+    const genreId = getGenreId(choosedGenre);
     const response = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${number}`,
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${page}`,
     );
     const data = await response.json();
     const genres = await fetchGenre();
