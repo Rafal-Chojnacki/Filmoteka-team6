@@ -20,7 +20,6 @@ const GetTotalPages = async (event, page) => {
   } else if (searchInput.value.trim() === '') {
     hidenPagination.classList.remove('ukryj');
     data = await fetchMovies(page);
-    console.log('2');
   } else {
     data = await searchMovies(searchInput.value, page);
   }
