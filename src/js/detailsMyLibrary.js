@@ -81,6 +81,7 @@ function removeFromWatched() {
         objectToRemove.parentNode.remove();
       }
     }
+    myLibraryWatchedGallery()
   });
   // if(localStorage.getItem('watched-films'))
 }
