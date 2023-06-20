@@ -1,13 +1,17 @@
 'use strict';
-import { searchInput } from './header';
+
 import { fetchMovies } from './moviesGallery';
 import { searchMovies } from './header';
-import { genreSelect } from './choose';
 import { handleGenreChange } from './choose';
+
+const genreSelect = document.querySelector('.genre');
+const searchInput = document.querySelector('.input');
 const ulTag = document.querySelector('.pagination ul');
 const moviesContainer = document.querySelector('.gallery');
 const APIKey = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
 let genreEvent;
+
+
 const GetTotalPages = async (event, page) => {
   let totalPages;
   var data;
