@@ -1,60 +1,50 @@
 'use strict';
-
+import { searchInput } from './header';
 import { fetchMovies } from './moviesGallery';
+import { searchMovies } from './header';
+import { genreSelect } from './choose';
+import { handleGenreChange } from './choose';
 const ulTag = document.querySelector('.pagination ul');
 const moviesContainer = document.querySelector('.gallery');
-const paginationContainer = document.querySelector('.pagination');
-const MOVIES_API_URL = 'https://api.themoviedb.org/3/movie/popular';
 const APIKey = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
-const defaultMoviesURL =
-  'https://api.themoviedb.org/3/trending/movie/week?api_key=e7c806d7ce9bbdf1ef93bebcabbfe0f1';
-let totalPages;
-// async function fetchMovies(page) {
-//   try {
-//     const response = await fetch(`${MOVIES_API_URL}?api_key=${APIKey}&page=${page}`);
-//     const data = await response.json();
-//     paginationBtns(data.total_pages, page);
-//     return data;
-//   } catch (error) {
-//     console.log(error.toString());
-//   }
-// }
-// function buildUpGallery() {
-//   fetchMovies(1);
-//   paginationBtns(data.total_pages, page);
-// }
-// totalPages = 20;
-// paginationBtns(totalPages, 1);
-const BuildGallery = async page => {
-const data = await fetchMovies(page, paginationContainer);
-  // totalPages = data.total_pages;
-  totalPages = 500;
-  paginationBtns(totalPages, page);
-};
-BuildGallery(1);
-async function searchMovies(page) {
-  try {
-    const searchText = document.querySelector('input[name="search"]').value;
-    const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${APIKey}&query=${searchText}&page=${page}`,
-    );
-    return response.json();
-  } catch (error) {
-    console.error(error.toString());
+let genreEvent;
+const GetTotalPages = async (event, page) => {
+  let totalPages;
+  var data;
+  if (genreSelect.value !== 'Choose genre') {
+    data = await handleGenreChange(event, page);
+  } else if (searchInput.value.trim() === '') {
+    data = await fetchMovies(page);
+  } else {
+    data = await searchMovies(searchInput.value, page);
   }
-}
+  totalPages = await data.total_pages;
+  return totalPages;
+};
+const BuildGallery = async (event, page) => {
+  let maxPages = await GetTotalPages(event, page);
+  paginationBtns(maxPages, page);
+};
+searchInput.addEventListener('input', () => {
+  genreSelect.value = 'Choose genre';
+  BuildGallery(null, 1);
+});
+genreSelect.addEventListener('change', event => {
+  genreEvent = event;
+  searchInput.value = '';
+  BuildGallery(event, 1);
+});
+BuildGallery(null, 1);
 function paginationBtns(total_pages, page) {
-  let pageLimit = 500;
   let liTag = '';
   let activeLi;
   let beforePages = page - 1;
   let afterPages = page + 1;
-  if (pageLimit)
-    if (page > 1) {
-      liTag += `<li class="btn prev" onclick="paginationClick(${total_pages}, ${
-        page - 1
-      })"><span class="arrow prev-arrow">&#129128;</span></li>`;
-    }
+  if (page > 1) {
+    liTag += `<li class="btn prev" onclick="paginationClick(${total_pages}, ${
+      page - 1
+    })"><span class="arrow prev-arrow">&#129128;</span></li>`;
+  }
   if (page > 2) {
     liTag += `<li class="pageNumber" onclick="paginationClick(${total_pages}, 1)"><span>1</span></li>`;
     if (page > 3) {
@@ -78,7 +68,6 @@ function paginationBtns(total_pages, page) {
   for (let pageLength = beforePages - 1; pageLength <= afterPages + 1; pageLength++) {
     if (pageLength < 0) {
       continue;
-
     }
     if (pageLength > total_pages || pageLength > total_pages + 1) {
       continue;
@@ -108,28 +97,28 @@ function paginationBtns(total_pages, page) {
 }
 window.paginationClick = function (total_pages, page) {
   paginationBtns(total_pages, page);
-  BuildGallery(page);
+  BuildGallery(genreEvent, page);
 };
-paginationContainer.addEventListener('click', e => {
-  if (e.target.localName === 'li' || e.target.localName === 'span') {
-    clearPageContent();
-    if (searchText === '') {
-      const URLBuild = defaultMoviesURL + '&page=' + e.target.textContent;
-      getDataFromAPI(URLBuild);
-    } else {
-      const URLBuild =
-        MOVIES_API_URL +
-        '?api_key=' +
-        APIKey +
-        '&query=' +
-        searchText +
-        '&page=' +
-        e.target.textContent;
-      console.log(URLBuild);
-      getDataFromAPI(URLBuild);
-    }
-  }
-});
+// paginationContainer.addEventListener('click', e => {
+//   if (e.target.localName === 'li' || e.target.localName === 'span') {
+//     clearPageContent();
+//     if (searchText === '') {
+//       const URLBuild = defaultMoviesURL + '&page=' + e.target.textContent;
+//       getDataFromAPI(URLBuild);
+//     } else {
+//       const URLBuild =
+//         MOVIES_API_URL +
+//         '?api_key=' +
+//         APIKey +
+//         '&query=' +
+//         searchText +
+//         '&page=' +
+//         e.target.textContent;
+//       console.log(URLBuild);
+//       getDataFromAPI(URLBuild);
+//     }
+//   }
+// });
 const clearPageContent = () => {
   moviesContainer.innerHTML = '';
 };
@@ -140,5 +129,17 @@ async function getDataFromAPI(url) {
     // Process the received data here
   } catch (error) {
     console.log(error.toString());
+  }
+}
+async function PagesAfterSearch(query, page) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${APIKey}&language=en-US&query=${query}&include_adult=false`,
+    );
+    console.log(data);
+    data = response.json();
+    return data;
+  } catch (error) {
+    console.error(error.toString());
   }
 }

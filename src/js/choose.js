@@ -1,9 +1,7 @@
-import { showLoader } from "./header";
-import { hideLoader } from "./header";
-import { hideNoTitleMessage } from "./header";
+import { showLoader } from './header';
+import { hideLoader } from './header';
+import { hideNoTitleMessage } from './header';
 const hidenPagination = document.querySelector('.hidenPagination');
-
-
 
 async function fetchGenre() {
   try {
@@ -18,24 +16,23 @@ async function fetchGenre() {
   }
 }
 
-
 const gallery = document.querySelector('.gallery');
 
 const genreSelect = document.querySelector('.genre');
 
-const API_KEY = '6fc014c055bacb8460b83603c43b9093'
+const API_KEY = '6fc014c055bacb8460b83603c43b9093';
 
 let genre = '';
 
 genreSelect.addEventListener('change', handleGenreChange);
 
 function handleGenreChange(event) {
-  hidenPagination.classList.remove('ukryj')
-  gallery.innerHTML='';
-hideNoTitleMessage();
-genre = event.target.value;
-fetchMoviesByGenre(genre);
-// console.log(selectedGenre);
+  hidenPagination.classList.remove('ukryj');
+  gallery.innerHTML = '';
+  hideNoTitleMessage();
+  genre = event.target.value;
+  fetchMoviesByGenre(genre);
+  // console.log(selectedGenre);
 }
 
 async function fetchMoviesByGenre(number) {
@@ -59,19 +56,21 @@ async function fetchMoviesByGenre(number) {
       'TV Movie': 10770,
       Thriller: 53,
       War: 10752,
-      Western: 37
+      Western: 37,
     };
     return genreMap[genre];
   }
   try {
     showLoader();
     const genreId = getGenreId(genre);
-    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${number}`);
+    const response = await fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${number}`,
+    );
     const data = await response.json();
     const genres = await fetchGenre();
-    const slajs = data.results.slice(0,20);
+    const slajs = data.results.slice(0, 20);
     moviesGallery(slajs, genres);
-    hideLoader()
+    hideLoader();
     return data;
   } catch (error) {
     console.log(error);
@@ -98,7 +97,7 @@ function getGenreId(genre) {
     'TV Movie': 10770,
     Thriller: 53,
     War: 10752,
-    Western: 37
+    Western: 37,
   };
   return genreMap[genre];
 }
@@ -107,19 +106,18 @@ let currentPage = 1;
 const moviesPerPage = 20;
 
 function moviesGallery(movies, genres) {
-
   const markup = movies
-  .sort((firstMovie, secondMovie) => secondMovie.popularity - firstMovie.popularity)
-  .map(movie => {
-    const { poster_path, id, title, release_date, genre_ids } = movie;
-    const year = new Date(release_date).getFullYear();
+    .sort((firstMovie, secondMovie) => secondMovie.popularity - firstMovie.popularity)
+    .map(movie => {
+      const { poster_path, id, title, release_date, genre_ids } = movie;
+      const year = new Date(release_date).getFullYear();
 
-    const movieGenres = genres
-      .filter(genre => genre_ids.includes(genre.id))
-      .map(genre => genre.name)
-      .join(', ');
+      const movieGenres = genres
+        .filter(genre => genre_ids.includes(genre.id))
+        .map(genre => genre.name)
+        .join(', ');
 
-    return `
+      return `
         <a class="gallery__link">
           <div class="gallery__item" id="${id}">
             <img class="gallery__item-img" src="https://image.tmdb.org/t/p/w500/${poster_path}"/>
@@ -131,12 +129,10 @@ function moviesGallery(movies, genres) {
           </div>
         </a>
       `;
-  })
-  .join('');
+    })
+    .join('');
 
-gallery.insertAdjacentHTML('afterbegin', markup);
-
-
+  gallery.insertAdjacentHTML('afterbegin', markup);
 }
 
-export {fetchMoviesByGenre , handleGenreChange};
+export { fetchMoviesByGenre, handleGenreChange };
