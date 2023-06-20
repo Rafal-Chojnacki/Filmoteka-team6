@@ -15,7 +15,6 @@ function myLibraryWatchedGallery() {
   watchedButton.classList.add('aktiv');
   let fetchedMovies = localStorage.getItem('watched-films');
   let fetchedMoviesArray = JSON.parse(fetchedMovies);
-  console.log(fetchedMoviesArray);
   if (fetchedMoviesArray && fetchedMoviesArray.length>0) {
     const fetchedWatchedMoviesGalery = fetchedMoviesArray
       .map(
