@@ -44,7 +44,6 @@ async function searchMovies(query, page = 1, perPage = 20) {
     if (movies.length === 0) {
       showNoTitleMessage();
       hidenPagination.classList.add('ukryj');
-      console.log('potato');
       gallery.innerHTML = '<p class="myfriend"></p>';
     } else {
       hidenPagination.classList.remove('ukryj');
