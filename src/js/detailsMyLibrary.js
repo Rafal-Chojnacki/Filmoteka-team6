@@ -1,4 +1,4 @@
-import {myLibraryWatchedGallery} from './library';
+import { myLibraryWatchedGallery } from './library';
 const API_KEY = 'e7c806d7ce9bbdf1ef93bebcabbfe0f1';
 const modalBackdrop = document.querySelector('.backdrop');
 const btnClose = document.querySelector('.modal__btnClose');
@@ -79,9 +79,10 @@ function removeFromWatched() {
         localStorage.setItem('watched-films', JSON.stringify(tempArray));
         const objectToRemove = document.querySelector(`#${CSS.escape(data.id)}`);
         objectToRemove.parentNode.remove();
+        toggleModal();
       }
     }
-    myLibraryWatchedGallery()
+    myLibraryWatchedGallery();
   });
   // if(localStorage.getItem('watched-films'))
 }
@@ -98,6 +99,7 @@ function removeFromQueued() {
         localStorage.setItem('queued-films', JSON.stringify(tempArray));
         const objectToRemove = document.querySelector(`#${CSS.escape(data.id)}`);
         objectToRemove.parentNode.remove();
+        toggleModal();
       }
     }
   });
