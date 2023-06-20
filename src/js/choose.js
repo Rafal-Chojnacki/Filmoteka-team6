@@ -1,6 +1,8 @@
 import { showLoader } from './header';
 import { hideLoader } from './header';
 import { hideNoTitleMessage } from './header';
+const hidenPagination = document.querySelector('.hidenPagination');
+
 
 async function fetchGenre() {
   try {
@@ -27,6 +29,8 @@ genreSelect.addEventListener('change', handleGenreChange);
 
 async function handleGenreChange(event, page) {
   gallery.innerHTML = '';
+  hidenPagination.classList.remove('ukryj');
+
   hideNoTitleMessage();
   genre = event.target.value;
   return fetchMoviesByGenre(genre, page);
