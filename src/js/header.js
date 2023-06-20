@@ -48,7 +48,6 @@ async function searchMovies(query, page = 1, perPage = 20) {
       gallery.innerHTML = '<p class="myfriend"></p>';
     } else {
       hidenPagination.classList.remove('ukryj');
-      console.log('tomato');
       hideNoTitleMessage();
     }
     return data;

@@ -32,7 +32,6 @@ const BuildGallery = async (event, page) => {
 };
 searchInput.addEventListener('input', () => {
   genreSelect.value = 'Choose genre';
-  console.log('1');
   BuildGallery(null, 1);
 });
 genreSelect.addEventListener('change', event => {
