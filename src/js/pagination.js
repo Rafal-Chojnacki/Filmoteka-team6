@@ -48,7 +48,7 @@ function paginationBtns(total_pages, page) {
   if (page > 1) {
     liTag += `<li class="btn prev" onclick="paginationClick(${total_pages}, ${
       page - 1
-    })"><span class="arrow prev-arrow">&#129128;</span></li>`;
+    })"><span class="arrow prev-arrow">&larr;</span></li>`;
   }
   if (page > 2) {
     liTag += `<li class="pageNumber" onclick="paginationClick(${total_pages}, 1)"><span>1</span></li>`;
@@ -96,7 +96,7 @@ function paginationBtns(total_pages, page) {
   if (page < total_pages) {
     liTag += `<li class="btn next" onclick="paginationClick(${total_pages}, ${
       page + 1
-    })"><span class="arrow next-arrow">&#129130;</span></li>`;
+    })"><span class="arrow next-arrow">&rarr;</span></li>`;
   }
   ulTag.innerHTML = liTag;
 }

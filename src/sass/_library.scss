@@ -106,3 +106,56 @@ cursor: pointer;
 .aktiv {
   background-color: #FF6B01;
 }
+
+
+.noway{
+  color: red;
+  font-size: 40px;
+  margin: 60px auto 40px auto;
+ 
+
+@include tablet {
+  color: red;
+  font-size: 40px;
+  margin: 60px auto 40px auto;
+
+
+
+}
+@include desktop {
+  color: red;
+  font-size: 40px;
+  margin: 60px auto 40px auto;
+
+
+}
+
+}
+
+.nowaytwo{
+  color: red;
+  font-size: 30px;
+  margin:20px auto 1000px auto;
+
+
+@include tablet {
+  color: red;
+  font-size: 30px;
+  margin:20px auto 1000px auto;
+
+
+
+}
+@include desktop {
+  color: red;
+  font-size: 30px;
+  margin:20px auto 1000px auto;
+
+
+}
+
+}
+
+body.dark__theme .gallery__link {
+  margin-top: 40px;
+}
