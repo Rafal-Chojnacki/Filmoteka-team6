@@ -78,17 +78,16 @@
 
 @include desktop {
   .gallery {
+    max-width: 1280px;
     gap: 16px;
-
+    margin: auto;
     &__link {
       flex-basis: calc((100% - 32px) / 3);
-      // margin: 0;
-
     }
     &__item {
       &-img {
-        width: 100vw;
-        height: 44.84vw;
+        max-width: 395px;
+        max-height: 574px;
       }
     }
   }
