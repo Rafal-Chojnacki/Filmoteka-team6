@@ -36,7 +36,8 @@ function myLibraryWatchedGallery() {
     myLibraryWatched.insertAdjacentHTML('afterbegin', fetchedWatchedMoviesGalery);
   } 
   else {
-    const message = '<h4 class="noway">Tutaj nic nie ma!<p class="nowaytwo">Dodaj proszę filmy do kolekcji !</p></h4>'
+    const message = '<h4 class="noway">There is nothing here!<p class="nowaytwo">Please add movies to the collection!</p></h4>'
+
 
     myLibraryWatched.insertAdjacentHTML(
       'afterbegin',message
@@ -74,7 +75,7 @@ function myLibraryQueueGallery() {
       .join('');
     myLibraryQueue.insertAdjacentHTML('afterbegin', fetchedQueuedMoviesGalery);
   } else {
-    const message = '<h4 class="noway">Tutaj nic nie ma!<p class="nowaytwo">Dodaj proszę filmy do kolekcji !</p></h4>'
+    const message = '<h4 class="noway">There is nothing here!<p class="nowaytwo">Please add movies to the collection!</p></h4>'
     myLibraryQueue.insertAdjacentHTML('afterbegin', message);
   }
 }
