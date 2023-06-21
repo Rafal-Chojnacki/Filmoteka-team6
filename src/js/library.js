@@ -36,9 +36,10 @@ function myLibraryWatchedGallery() {
     myLibraryWatched.insertAdjacentHTML('afterbegin', fetchedWatchedMoviesGalery);
   } 
   else {
+    const message = '<h4 class="noway">Tutaj nic nie ma!<p class="nowaytwo">Dodaj proszę filmy do kolekcji !</p></h4>'
+
     myLibraryWatched.insertAdjacentHTML(
-      'afterbegin',
-      'There are no movies in your watched gallery',
+      'afterbegin',message
     );
   }
 }
@@ -54,7 +55,9 @@ function myLibraryQueueGallery() {
   queueButton.classList.add('aktiv');
   let fetchedMovies = localStorage.getItem('queued-films');
   let fetchedMoviesArray = JSON.parse(fetchedMovies);
-  if (fetchedMoviesArray && fetchedMoviesArray.length>0) {
+
+
+   if (fetchedMoviesArray && fetchedMoviesArray.length>0) {
     
     const fetchedQueuedMoviesGalery = fetchedMoviesArray
       .map(
@@ -71,7 +74,8 @@ function myLibraryQueueGallery() {
       .join('');
     myLibraryQueue.insertAdjacentHTML('afterbegin', fetchedQueuedMoviesGalery);
   } else {
-    myLibraryQueue.insertAdjacentHTML('afterbegin', 'There are no queued movies in your gallery');
+    const message = '<h4 class="noway">Tutaj nic nie ma!<p class="nowaytwo">Dodaj proszę filmy do kolekcji !</p></h4>'
+    myLibraryQueue.insertAdjacentHTML('afterbegin', message);
   }
 }
 
